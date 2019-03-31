@@ -4,26 +4,27 @@ from django.db import models
 
 
 class Product(models.Model):
-    productName = models.CharField(max_length=250)
-    productGenre = models.CharField(max_length=250)
-    productGroup = models.CharField(max_length=250)
-    productSize = models.CharField(max_length=250)
-    productDescript = models.CharField(max_length=250)
-    productPublish = models.DateTimeField('date published')
+	productName = models.CharField(max_length=250)
+	productGenre = models.CharField(max_length=250)
+	productGroup = models.CharField(max_length=250)
+	productSize = models.CharField(max_length=250)
+	productDescript = models.CharField(max_length=250)
+	productImage = models.FileField(null=True, blank=True)
+	productPublish = models.DateTimeField('date published')
 
 
-    def __str__(self):
-        return self.productName
+	def __str__(self):
+		return self.productName
 
 
 class Image(models.Model):
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    #productName = self.productName
-    imageMain = models.FileField(null=True, blank=True)
-    votes = models.IntegerField(default=0)
+	product = models.ForeignKey(Product, on_delete=models.CASCADE)
+	#productName = self.productName
+	imageMain = models.FileField(null=True, blank=True)
+	votes = models.IntegerField(default=0)
 
-    def __str__(self):
-        return str(self.imageMain) + ' - ' + str(self.product_id)
+	def __str__(self):
+		return str(self.imageMain) + ' - ' + str(self.product_id)
 
 '''
 class Question(models.Model):
