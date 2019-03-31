@@ -20,9 +20,35 @@ body {
         font-size: 18px;
         padding: 2px 10px;
     }
+    .newsletter-section {
+        margin: 30px 10px !important;
+    }
 }
- 
 
+.custom-h2-title::after {
+    content: '';
+    height: 2px;
+    background-color: #dc3545;
+    width: 100px;
+    display: inline-block;
+    position: absolute;
+    top: 70px;
+    left: calc(50% - 50px);
+}
+.product-container .card {
+    transition: 1s;
+}
+
+.product-container .card:hover {
+    box-shadow: 5px 5px 20px #999;
+    cursor: pointer;
+    transform: translateY(-5px);
+
+}
+
+.newsletter-section {
+    margin: 100px 10px;
+}
 /* /////////////////////////// */
 /* OLD STYLE  */
 /* /////////////////////////// */

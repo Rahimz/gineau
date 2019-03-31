@@ -24,15 +24,15 @@
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-
+    <link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
     <!-- open sans font -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-
     <!-- owl caroucel -->
-    <link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
-    <link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 
 
 </head>
@@ -133,10 +133,126 @@
             </a>
         </div>
 
-        <p class="mt-5">Hello world!</p>
+        <!-- ------------ start of Woman products --------------- -->
+        <div class="container product-container position-relative">
+            <h2 class="text-muted text-center py-4 custom-h2-title">Women's Products</h2>
+            <div class="row wow fadeInUp">
+                <div class="col-sm-6 col-lg-3">
+                    <div class="card">
+                        <img class="card-img-top" src="{% static 'images/sample_01.jpg' %}" alt="">
+                        <div class="card-body">
+                            <h4 class="card-title text-danger">product name</h4>
+                            <p class="card-text">descriptions of the product and more </p>
+                            <a href="#" class="btn btn-sm btn-outline-danger">more...</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                    <div class="card">
+                        <img class="card-img-top" src="{% static 'images/sample_02.jpg' %}" alt="">
+                        <div class="card-body">
+                            <h4 class="card-title text-danger">product name</h4>
+                            <p class="card-text">descriptions of the product and more </p>
+                            <a href="#" class="btn btn-sm btn-outline-danger">more...</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                    <div class="card">
+                        <img class="card-img-top" src="{% static 'images/sample_03.jpg' %}" alt="">
+                        <div class="card-body">
+                            <h4 class="card-title text-danger">product name</h4>
+                            <p class="card-text">descriptions of the product and more </p>
+                            <a href="#" class="btn btn-sm btn-outline-danger">more...</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                    <div class="card">
+                        <img class="card-img-top" src="{% static 'images/sample_04.jpg' %}" alt="">
+                        <div class="card-body">
+                            <h4 class="card-title text-danger">product name</h4>
+                            <p class="card-text">descriptions of the product and more </p>
+                            <a href="#" class="btn btn-sm btn-outline-danger">more...</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ------------ start of Men products --------------- -->
+        <div class="container product-container position-relative">
+            <h2 class="text-muted text-center py-4 custom-h2-title">Men's Products</h2>
+            <div class="row wow fadeInUp">
+                <div class="col-sm-6 col-lg-3">
+                    <div class="card">
+                        <img class="card-img-top" src="{% static 'images/sample_04.jpg' %}" alt="">
+                        <div class="card-body">
+                            <h4 class="card-title text-danger">product name</h4>
+                            <p class="card-text">descriptions of the product and more </p>
+                            <a href="#" class="btn btn-sm btn-outline-danger">more...</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                    <div class="card">
+                        <img class="card-img-top" src="{% static 'images/sample_03.jpg' %}" alt="">
+                        <div class="card-body">
+                            <h4 class="card-title text-danger">product name</h4>
+                            <p class="card-text">descriptions of the product and more </p>
+                            <a href="#" class="btn btn-sm btn-outline-danger">more...</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                    <div class="card">
+                        <img class="card-img-top" src="{% static 'images/sample_01.jpg' %}" alt="">
+                        <div class="card-body">
+                            <h4 class="card-title text-danger">product name</h4>
+                            <p class="card-text">descriptions of the product and more </p>
+                            <a href="#" class="btn btn-sm btn-outline-danger">more...</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                    <div class="card">
+                        <img class="card-img-top" src="{% static 'images/sample_02.jpg' %}" alt="">
+                        <div class="card-body">
+                            <h4 class="card-title text-danger">product name</h4>
+                            <p class="card-text">descriptions of the product and more </p>
+                            <a href="#" class="btn btn-sm btn-outline-danger">more...</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ------------ start of Newsletter --------------- -->
+        <div class="container newsletter-section container ">
+            <div class="row justify-content-center">
+                <div class="col-md-6 text-center text-md-left align-self-center">
+                    <h2 class="text-muted py-4 text-center custom-h2-title">Stay up to date.</h2>
+                    <p class="lead py-2 py-md-4">Get notified about company news, updates and be the first get early
+                        access to the <strong>faster,
+                            simpler and smarter</strong> way of presenting</p>
+                    <form method="post" action="" class="wow fadeInUp">
+                        <div class="input-group input-group-lg mb-3 custom-input">
+                            <input type="text" class="form-control" placeholder="Your Email">
+                            <div class="input-group-append">
+                                <span class="input-group-text">Sign up</span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
         {% block content %}
         {% endblock %}
     </main>
+    <!-- ------------ start of Newsletter --------------- -->
     <footer>
 
     </footer>
@@ -150,4 +266,11 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
     <!-- <script src="owlcarousel/owl.gacarousel.min.js"></script> -->
+
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+
+    <script src="{% static 'js/wow.min.js' %}"></script>
+    <script>
+        new WOW().init();
+    </script>
 </body>
