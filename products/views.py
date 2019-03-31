@@ -3,7 +3,8 @@ from django.http import HttpResponse, Http404
 from django.views import generic
 
 from .models import Product
-#from django.template import loader
+from django.template import loader
+
 # Create your views here.
 
 class IndexView(generic.ListView):
@@ -38,5 +39,17 @@ class DetailView(generic.DetailView):
      
 
 def prdimage(request, product_id):
-    response = "You're looking at the images of product %s."
-    return HttpResponse(response % product_id)
+    response = "You're looking at the images of product {}s."
+    return HttpResponse(response.format(product_id))
+
+class blog(generic.ListView):
+	template_name = 'products/blog.html'
+
+	def get_queryset(self):
+		"""Return the last five published questions."""
+		return Product.objects.order_by('-productPublish')[:5:-1]
+
+def UIView(request):
+    return render(request,
+                  'products/new_base.html',
+                  {})

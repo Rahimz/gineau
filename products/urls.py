@@ -11,6 +11,8 @@ urlpatterns = [
     # /products/1/
     path('<int:pk>/', views.DetailView.as_view(), name='detail'),
     # /products/1/images/
-    path('<int:pk>/images/', views.prdimage, name='prdimage'),
+    path('<int:product_id>/images/', views.prdimage, name='prdimage'),
+	path('blog/', views.blog.as_view(), name='blog'),
+    path('ui/', views.UIView, name='uiview'),
 
 ]
