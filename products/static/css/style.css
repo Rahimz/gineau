@@ -21,7 +21,9 @@ body {
         padding: 2px 10px;
     }
 }
- 
+.nav-item > li > a:hover {
+    background-color: #dc3545;
+}
 
 /* /////////////////////////// */
 /* OLD STYLE  */

@@ -10,7 +10,7 @@
     <title>Gineau Leathers</title>
     <title>{% block title %}{% endblock %}</title>
     <!-- favicon -->
-    <!-- <link rel="icon" type="image/png" sizes="16x16" href="{% static "images/favicon.png" %}"> -->
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static "images/favicon.png" %}">
 
     <!-- Open graph goes here for activate Rich link preview-->
     <!-- <meta property="og:title" content="Elvatech.ir Design, Create & Maintenance" />
@@ -22,31 +22,132 @@
             <meta property="og:determiner" content="the" /> -->
     <!-- OG Meta tags ends here -->
 
-        <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
-        <!-- open sans font -->
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> 
+    <!-- open sans font -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 
-        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+    <!-- owl caroucel -->
+    <link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css">
 
 
 </head>
+
 <body>
     <header>
         <div class="container">
             <div class="row">
-                <nav class="navbar navbar-expand-sm navbar-dark fixed-top"></nav>
+                <nav class="navbar navbar-expand-sm navbar-dark fixed-top bg-dark border-bottm">
+                    <a href="http://gineau.com" class="navbar-brand text-danger">
+                        <strong>Gineau</strong>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sample-id">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="sample-id">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">Women</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">Men</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">Contacts</a>
+                            </li>
+                        </ul>
+                        <button href="#" data-toggle="modal" data-target="#custom-modal"
+                            class="btn btn-danger">Newsletter</button>
+                    </div>
+                </nav>
+
+                <div class="modal fade" id="custom-modal">
+                    <div class="modal-dialog modal-sm modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title text-danger">Newsletter</h4>
+                                <button type="button" class="close m-1 p-1" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <form method="get" action="" class="form-group">
+                                    <label for="user-email">Email:</label><input type="email" id="user-email"
+                                        class="form-control mb-3">
+                                    <div class="btn-group">
+                                        <input type="button" class="btn btn-sm btn-outline-danger" value="submit">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-sm btn-dark" data-dismiss="modal">Close</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
         </div>
 
     </header>
     <main>
-        <p>Hello world!</p>
-            {% block content %}
-            {% endblock %}
+        <div id="carousel-sample" class="carousel slide mt-5" data-ride="carousel">
+            <div class="carousel-inner" style="height: 40vw">
+                <div class="carousel-item active h-100">
+                    <img class="d-block w-100 h-100" src="{% static 'slider/slider-1.jpg' %}" />
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>first slide</h5>
+                        <p>slide descriptions</p>
+                    </div>
+                </div>
+                <div class="carousel-item h-100">
+                    <img class="d-block w-100 h-100" src="{% static 'slider/slider-2.jpg' %}" />
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Second slide</h5>
+                        <p>Second slide descriptions</p>
+                    </div>
+                </div>
+                <div class="carousel-item h-100">
+                    <img class="d-block w-100 h-100" src="{% static 'slider/slider-3.jpg' %}" />
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Third slide</h5>
+                        <p>Third slide descriptions</p>
+                    </div>
+                </div>
+
+            </div>
+            <ol class="carousel-indicators">
+                <li data-target="#carousel-sample" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-sample" data-slide-to="1"></li>
+                <li data-target="#carousel-sample" data-slide-to="2"></li>
+            </ol>
+            <a class="carousel-control-prev" href="#carousel-sample" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#carousel-sample" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </a>
+        </div>
+
+        <p class="mt-5">Hello world!</p>
+        {% block content %}
+        {% endblock %}
     </main>
     <footer>
 
     </footer>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <!-- <script src="owlcarousel/owl.gacarousel.min.js"></script> -->
 </body>
