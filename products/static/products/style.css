@@ -1,16 +1,11 @@
 @font-face {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif src="";
 }
 body {
     font-family: sans-serif;
 }
 
 ::selection {
-    background: #dc3545;
-    color: #fdfdfd;
-}
-
-::-moz-selection {
     background: #dc3545;
     color: #fdfdfd;
 }
@@ -45,7 +40,20 @@ body {
     box-shadow: 5px 5px 20px #999;
     cursor: pointer;
     transform: translateY(-5px);
+}
 
+.custom-input input:focus {
+    border: 1px solid #6d48e5;
+    color: #6d48e5;
+    transition: 500ms;
+    box-shadow: none;
+}
+
+.custom-input .input-group-append span {
+    color: #ffffff;
+    font-weight: bold;
+    background-color: #6d48e5;
+    border: 1px solid #6d48e5;
 }
 
 .newsletter-section {
@@ -55,12 +63,8 @@ body {
 /* OLD STYLE  */
 /* /////////////////////////// */
 
-body{
-    /* background: white url("images/cadr.png"); */
-}
-
 .navbar{
-    border-radius: 5;
+    border-radius: 5px;
 }
 
 .navbar-brand{
