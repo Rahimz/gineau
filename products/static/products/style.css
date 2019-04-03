@@ -40,6 +40,8 @@ body {
 }
 
 .product-container .card:hover {
+    -moz-box-shadow: 5px 5px 20px #999;
+    -webkit-box-shadow: 5px 5px 20px #999;
     box-shadow: 5px 5px 20px #999;
     cursor: pointer;
     transform: translateY(-5px);
