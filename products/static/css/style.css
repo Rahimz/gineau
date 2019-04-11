@@ -15,20 +15,20 @@ body {
         font-size: 18px;
         padding: 2px 10px;
     }
-    .newsletter-section {
+    /* .newsletter-section {
         margin: 30px 10px !important;
-    }
+    } */
 }
 
 .custom-h2-title::after {
     content: '';
     height: 2px;
     background-color: #dc3545;
-    width: 100px;
+    width: 240px;
     display: inline-block;
     position: absolute;
     top: 70px;
-    left: calc(50% - 50px);
+    left: calc(50% - 120px);
 }
 .product-container .card {
     transition: 1s;
@@ -42,9 +42,10 @@ body {
     transform: translateY(-5px);
 }
 
+/* input group for newsletter */
 .custom-input input:focus {
-    border: 1px solid #6d48e5;
-    color: #6d48e5;
+    border: 1px solid #dc3545;
+    color: #dc3545;
     transition: 500ms;
     box-shadow: none;
 }
@@ -52,13 +53,127 @@ body {
 .custom-input .input-group-append span {
     color: #ffffff;
     font-weight: bold;
-    background-color: #6d48e5;
-    border: 1px solid #6d48e5;
+    background-color: #dc3545;
+    border: 1px solid #dc3545;
+}
+ /* ////// footer styles //////////*/
+footer.custom-border-top {
+    border-top: 1px solid #dc3545;
 }
 
-.newsletter-section {
-    margin: 100px 10px;
+/* widget for footer */
+.widget-box .widget-title {
+    position: relative;
+    border-bottom: 2px solid #666666;
 }
+
+.widget-box .widget-title:after {
+    content: "";
+    position: absolute;
+    top: 43px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #666;
+}
+
+.widget-box .widget-title:after {
+    content: "";
+    position: absolute;
+    top: 40px;
+    right: 0;
+    width: 0;
+    height: 2px;
+    background-color: #dc3545;
+    transition: 800ms;
+}
+
+.widget-box:hover .widget-title:after {
+    width: 30%;
+}
+footer i {
+    padding: 5px;
+    color: #dc3545;
+    border-radius: 5px;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    transition: 800ms;
+}
+
+footer .social-network a>i:hover {
+    color: #fff;
+}
+
+footer .social-network a i.fa-facebook:hover {
+    background: #3B5998;
+}
+
+footer .social-network a i.fa-twitter:hover {
+    background: #1DA1F2;
+}
+
+footer .social-network a i.fa-pinterest:hover {
+    background: #bd081c;
+}
+
+footer .social-network a i.fa-linkedin:hover {
+    background: #0077B5;
+}
+
+footer .social-network a i.fa-instagram:hover {
+    background: #e1306c;
+}
+
+footer .social-network a i.fa-send:hover {
+    background: #0088cc;
+}
+
+footer .social-network a i.fa-rss:hover {
+    background: #f26522;
+}
+/* footer newsletter form */
+footer .newsletter-form p {
+    color: #ddd;
+    padding: 20px 0;
+}
+
+footer .newsletter-form form input[type=email] {
+    width: 75%;
+    padding: 9px;
+    background: transparent;
+    border-radius: 5px 0 0 5px;
+    border: 1px solid #dc3545;
+    outline: none;
+    color: #ddd;
+    transition: 500ms;
+    font-family: sans-serif;
+}
+
+footer .newsletter-form form input[type=email]:focus {
+    border: 1px solid #1abc9c;
+    text-align: left;
+}
+
+footer .newsletter-form form input[type=submit] {
+    width: 22%;
+    padding: 10px;
+    border-radius: 0 5px 5px 0;
+    border: 1px solid #dc3545;
+    color: #000;
+    background-color: #dc3545;
+    outline: none;
+    transition: 500ms;
+    font-family: sans-serif;    
+    cursor: pointer;
+}
+
+footer .newsletter-form form input[type=submit]:hover {
+    background: transparent;
+    color: #fff;
+}
+
+
 /* /////////////////////////// */
 /* OLD STYLE  */
 /* /////////////////////////// */
