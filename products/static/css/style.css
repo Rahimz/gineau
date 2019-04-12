@@ -109,18 +109,6 @@ footer .social-network a i.fa-facebook:hover {
     background: #3B5998;
 }
 
-footer .social-network a i.fa-twitter:hover {
-    background: #1DA1F2;
-}
-
-footer .social-network a i.fa-pinterest:hover {
-    background: #bd081c;
-}
-
-footer .social-network a i.fa-linkedin:hover {
-    background: #0077B5;
-}
-
 footer .social-network a i.fa-instagram:hover {
     background: #e1306c;
 }
@@ -129,9 +117,6 @@ footer .social-network a i.fa-send:hover {
     background: #0088cc;
 }
 
-footer .social-network a i.fa-rss:hover {
-    background: #f26522;
-}
 /* footer newsletter form */
 footer .newsletter-form p {
     color: #ddd;
