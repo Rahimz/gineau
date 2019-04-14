@@ -53,3 +53,8 @@ def UIView(request):
     return render(request,
                   'products/new_base.html',
                   {})
+
+def UIProductListView(request):
+    return render(request,
+                  'products/base_n.html',
+                  {})
