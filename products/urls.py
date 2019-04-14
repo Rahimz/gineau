@@ -13,7 +13,8 @@ urlpatterns = [
     # /products/1/images/
     path('<int:product_id>/images/', views.prdimage, name='prdimage'),
 	path('blog/', views.blog.as_view(), name='blog'),
-    path('ui/', views.UIView, name='uiview'),
-    path('ui/products/', views.UIProductListView, name='uiProductview'),
+    # path('ui/template/', views.UIView, name='uiview'),
+    path('ui/', views.UIHomeView, name='uihome'),
+    path('ui/products/', views.UIProductListView, name='uiproductlistview'),
 
 ]
