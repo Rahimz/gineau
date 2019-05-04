@@ -64,7 +64,7 @@ class HomeView(generic.ListView):
 
     def get_queryset(self):
         """Return the last five published questions."""
-        return Product.objects.order_by('-productPublish')[:5:-1]
+        return Product.objects.order_by('-productPublish')[:8:-1]
 
     # return render(request,
     #               'products/home.html',
