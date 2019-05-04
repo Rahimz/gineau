@@ -59,7 +59,7 @@ def UIView(request):
 
 
 class HomeView(generic.ListView):
-    template_name = 'products/home.html'
+    template_name = 'products/new_base.html'
     context_object_name = 'latest_product_list'
 
     def get_queryset(self):
