@@ -14,7 +14,7 @@ urlpatterns = [
     path('<int:product_id>/images/', views.prdimage, name='prdimage'),
 	path('blog/', views.blog.as_view(), name='blog'),
     # path('ui/template/', views.UIView, name='uiview'),
-    path('ui/', views.UIHomeView, name='uihome'),
-    path('ui/products/', views.UIProductListView, name='uiproductlistview'),
+    path('ui/', views.HomeView.as_view(), name='home'),
+    path('ui/products/', views.ProductListView, name='productlistview'),
 
 ]

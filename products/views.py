@@ -9,12 +9,12 @@ from django.template import loader
 
 
 class IndexView(generic.ListView):
-    #template = loader.get_template('products/index.html')
+    # template = loader.get_template('products/index.html')
     # return HttpResponse("Hello, You are in <strong>product</strong> index")
 
     # Version 2
-    #latest_product_list = Product.objects.order_by('-productPublish')[:5:-1]
-    #context = {'latest_product_list': latest_product_list,}
+    # latest_product_list = Product.objects.order_by('-productPublish')[:5:-1]
+    # context = {'latest_product_list': latest_product_list,}
     # return render(request, 'products/index.html', context)
 
     template_name = 'products/index.html'
@@ -32,7 +32,7 @@ class DetailView(generic.DetailView):
     #    raise Http404("Product does not exist")
 
     # version 2
-    #product = get_object_or_404(Product, pk=product_id)
+    # product = get_object_or_404(Product, pk=product_id)
     # return render(request, 'products/detail.html', {'product':product})
 
     model = Product
@@ -57,12 +57,20 @@ def UIView(request):
                   'products/new_base.html',
                   {})
 
-def UIHomeView(request):
-    return render(request,
-                  'products/home.html',
-                  {})
 
-def UIProductListView(request):
+class HomeView(generic.ListView):
+    template_name = 'products/home.html'
+    context_object_name = 'latest_product_list'
+
+    def get_queryset(self):
+        """Return the last five published questions."""
+        return Product.objects.order_by('-productPublish')[:5:-1]
+
+    # return render(request,
+    #               'products/home.html',
+    #               {})
+
+def ProductListView(request):
     return render(request,
                   'products/products_list.html',
                   {})
