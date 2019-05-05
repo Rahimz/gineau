@@ -1,324 +1,160 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'products/base_n.html' %}
 
-<head>
-    {% load static %}
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+{% block title %}Product Detail{% endblock %}
 
-    <title>Gineau Leathers</title>
-    <title>{% block title %}{% endblock %}</title>
-    <!-- favicon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{% static "images/favicon.png" %}">
+{% load static %}
 
-    <!-- Open graph goes here for activate Rich link preview-->
-    <!-- <meta property="og:title" content="Elvatech.ir Design, Create & Maintenance" />
-            <meta property="og:type" content="image/jpeg" />
-            <meta property="og:url" content="http://elvatech.ir" />
-            <meta property="og:image" content="{% static "images/logo.png" %}" />
-            <meta property="og:image:width" content="350" />
-            <meta property="og:description" content="ElvaTech, Design, Create and Maintenance of hightech machines" />
-            <meta property="og:determiner" content="the" /> -->
-    <!-- OG Meta tags ends here -->
+{% block content %}
 
-    <!-- Latest compiled and minified CSS -->
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> -->
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <!-- <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">     -->
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"> -->
-    <link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
-    <!-- open sans font -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-
-    <!-- owl caroucel -->
-    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
-
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-
-
-</head>
-
-<body>
-    <header>
-        <div class="container">
-            <div class="row">
-                <nav class="navbar navbar-expand-sm navbar-dark fixed-top bg-dark border-bottm">
-                    <a href="http://gineau.com" class="navbar-brand text-danger">
-                        <img src="{% static "images/gineau_nav.png" %}" alt="gineau logo">
-                        <!-- <strong>Gineau</strong> -->
-                    </a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sample-id">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="sample-id">
-                        <ul class="navbar-nav mr-auto">
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">Women</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">Men</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">Contacts</a>
-                            </li>
-                        </ul>
-                        <button href="#" data-toggle="modal" data-target="#custom-modal"
-                            class="btn btn-danger">Newsletter</button>
-                    </div>
-                </nav>
-
-                <div class="modal fade" id="custom-modal">
-                    <div class="modal-dialog modal-sm modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h4 class="modal-title text-danger">Newsletter</h4>
-                                <button type="button" class="close m-1 p-1" data-dismiss="modal">&times;</button>
-                            </div>
-                            <div class="modal-body">
-                                <form method="get" action="" class="form-group">
-                                    <label for="user-email">Email:</label><input type="email" id="user-email"
-                                        class="form-control mb-3">
-                                    <div class="btn-group">
-                                        <input type="button" class="btn btn-sm btn-outline-danger" value="submit">
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-sm btn-dark" data-dismiss="modal">Close</button>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-
-
+<div id="carousel-sample" class="carousel slide mt-5" data-ride="carousel">
+    <div class="carousel-inner" style="height: 40vw">
+        <div class="carousel-item active h-100">
+            <img class="d-block w-100 h-100" src="{% static 'slider/slider-1.jpg' %}" />
+            <div class="carousel-caption d-none d-md-block">
+                <h5>first slide</h5>
+                <p>slide descriptions</p>
+            </div>
+        </div>
+        <div class="carousel-item h-100">
+            <img class="d-block w-100 h-100" src="{% static 'slider/slider-2.jpg' %}" />
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Second slide</h5>
+                <p>Second slide descriptions</p>
+            </div>
+        </div>
+        <div class="carousel-item h-100">
+            <img class="d-block w-100 h-100" src="{% static 'slider/slider-3.jpg' %}" />
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Third slide</h5>
+                <p>Third slide descriptions</p>
             </div>
         </div>
 
-    </header>
-    <main>
-        <div id="carousel-sample" class="carousel slide mt-5" data-ride="carousel">
-            <div class="carousel-inner" style="height: 40vw">
-                <div class="carousel-item active h-100">
-                    <img class="d-block w-100 h-100" src="{% static 'slider/slider-1.jpg' %}" />
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>first slide</h5>
-                        <p>slide descriptions</p>
-                    </div>
-                </div>
-                <div class="carousel-item h-100">
-                    <img class="d-block w-100 h-100" src="{% static 'slider/slider-2.jpg' %}" />
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Second slide</h5>
-                        <p>Second slide descriptions</p>
-                    </div>
-                </div>
-                <div class="carousel-item h-100">
-                    <img class="d-block w-100 h-100" src="{% static 'slider/slider-3.jpg' %}" />
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Third slide</h5>
-                        <p>Third slide descriptions</p>
-                    </div>
-                </div>
+    </div>
+    <ol class="carousel-indicators">
+        <li data-target="#carousel-sample" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-sample" data-slide-to="1"></li>
+        <li data-target="#carousel-sample" data-slide-to="2"></li>
+    </ol>
+    <a class="carousel-control-prev" href="#carousel-sample" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a class="carousel-control-next" href="#carousel-sample" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </a>
+</div>
 
-            </div>
-            <ol class="carousel-indicators">
-                <li data-target="#carousel-sample" data-slide-to="0" class="active"></li>
-                <li data-target="#carousel-sample" data-slide-to="1"></li>
-                <li data-target="#carousel-sample" data-slide-to="2"></li>
-            </ol>
-            <a class="carousel-control-prev" href="#carousel-sample" data-slide="prev">
-                <span class="carousel-control-prev-icon"></span>
-            </a>
-            <a class="carousel-control-next" href="#carousel-sample" data-slide="next">
-                <span class="carousel-control-next-icon"></span>
-            </a>
-        </div>
+<!-- ------------ start of Woman products --------------- -->
+<div class="container product-container position-relative">
+    <h2 class="text-muted text-center py-4 custom-h2-title">Women's Products</h2>
+    <div class="row wow fadeInUp">
+        {% if latest_product_list %}
+        {% for product in latest_product_list %}
 
-        <!-- ------------ start of Woman products --------------- -->
-        <div class="container product-container position-relative">
-            <h2 class="text-muted text-center py-4 custom-h2-title">Women's Products</h2>
-            <div class="row wow fadeInUp">
-                {% if latest_product_list %}
-                {% for product in latest_product_list %}
-
-                <div class="col-sm-6 col-lg-3">
-                    <div class="card">
-                        {% if product.productImage %}
-                            <img class="card-img-top" src="{{ product.productImage.url }}" alt="">
-                        <!-- TODO: I should add Alt field to images model-->
-                        {% else %}
-                            <img class="card-img-top" src="{% static 'images/noimage.png' %}" alt="">
-                        {% endif %}
-
-                        <!-- <img class="card-img-top" src="{{ product.image.url }}" alt=""> -->
-                        <div class="card-body">
-                            <h4 class="card-title text-danger">{{ product.productName }}</h4>
-                            <p class="card-text">{{ product.productDescript }}</p>
-                            <a href="{% url 'products:detail' product.id %}"
-                                class="btn btn-sm btn-outline-danger">more...</a>
-                        </div>
-                    </div>
-                </div>
-                {% endfor %}
-
-
+        <div class="col-sm-6 col-lg-3">
+            <div class="card">
+                {% if product.productImage %}
+                <img class="card-img-top" src="{{ product.productImage.url }}" alt="">
+                <!-- TODO: I should add Alt field to images model-->
                 {% else %}
-                <p>No products are available.</p>
+                <img class="card-img-top" src="{% static 'images/noimage.png' %}" alt="">
                 {% endif %}
 
-
-
-            </div>
-        </div>
-
-
-        <!-- ------------ start of Men products --------------- -->
-        <div class="container product-container position-relative">
-            <h2 class="text-muted text-center py-4 custom-h2-title">Men's Products</h2>
-            <div class="row wow fadeInUp">
-                <div class="col-sm-6 col-lg-3">
-                    <div class="card">
-                        {% if product.image %}
-                        <img class="card-img-top" src="{{ product.image.url }}" alt="">
-                        <!-- TODO: I should add Alt field to images model-->
-                        {% else %}
-                        <img class="card-img-top" src="{% static 'images/noimage.png' %}" alt="">
-                        {% endif %}
-
-                        <div class="card-body">
-                            <h4 class="card-title text-danger">product name</h4>
-                            <p class="card-text">descriptions of the product and more </p>
-                            <a href="#" class="btn btn-sm btn-outline-danger">more...</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                    <div class="card">
-                        <img class="card-img-top" src="{% static 'images/sample_03.jpg' %}" alt="">
-                        <div class="card-body">
-                            <h4 class="card-title text-danger">product name</h4>
-                            <p class="card-text">descriptions of the product and more </p>
-                            <a href="#" class="btn btn-sm btn-outline-danger">more...</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                    <div class="card">
-                        <img class="card-img-top" src="{% static 'images/sample_01.jpg' %}" alt="">
-                        <div class="card-body">
-                            <h4 class="card-title text-danger">product name</h4>
-                            <p class="card-text">descriptions of the product and more </p>
-                            <a href="#" class="btn btn-sm btn-outline-danger">more...</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                    <div class="card">
-                        <img class="card-img-top" src="{% static 'images/sample_02.jpg' %}" alt="">
-                        <div class="card-body">
-                            <h4 class="card-title text-danger">product name</h4>
-                            <p class="card-text">descriptions of the product and more </p>
-                            <a href="#" class="btn btn-sm btn-outline-danger">more...</a>
-                        </div>
-                    </div>
+                <!-- <img class="card-img-top" src="{{ product.image.url }}" alt=""> -->
+                <div class="card-body">
+                    <h4 class="card-title text-danger">{{ product.productName }}</h4>
+                    <p class="card-text">{{ product.productDescript }}</p>
+                    <a href="{% url 'products:detail' product.id %}" class="btn btn-sm btn-outline-danger">more...</a>
                 </div>
             </div>
         </div>
+        {% endfor %}
 
 
-        <!-- ------------ start of Newsletter --------------- -->
-        <div class="container newsletter-section container ">
-            <div class="row justify-content-center">
-                <div class="col-md-6 text-center align-self-center">
-                    <h2 class="text-muted py-4 text-center custom-h2-title">Stay up to date.</h2>
-                    <p class="lead py-2 py-md-4">Get notified about company news,
-                        updates and be the first get early access to the
-                        <strong>faster, simpler and smarter</strong>
-                        way of presenting
-                    </p>
-                    <form method="post" action="" class="wow fadeInUp">
-                        <div class="input-group input-group-lg mb-3 custom-input">
-                            <input type="text" class="form-control" placeholder="Your Email">
-                            <div class="input-group-append">
-                                <span class="input-group-text">Sign up</span>
-                            </div>
-                        </div>
-                    </form>
+        {% else %}
+        <p>No products are available.</p>
+        {% endif %}
+
+
+
+    </div>
+</div>
+
+
+<!-- ------------ start of Men products --------------- -->
+<div class="container product-container position-relative">
+    <h2 class="text-muted text-center py-4 custom-h2-title">Men's Products</h2>
+    <div class="row wow fadeInUp">
+        <div class="col-sm-6 col-lg-3">
+            <div class="card">
+                {% if product.image %}
+                <img class="card-img-top" src="{{ product.image.url }}" alt="">
+                <!-- TODO: I should add Alt field to images model-->
+                {% else %}
+                <img class="card-img-top" src="{% static 'images/noimage.png' %}" alt="">
+                {% endif %}
+
+                <div class="card-body">
+                    <h4 class="card-title text-danger">product name</h4>
+                    <p class="card-text">descriptions of the product and more </p>
+                    <a href="#" class="btn btn-sm btn-outline-danger">more...</a>
                 </div>
             </div>
         </div>
-
-        {% block content %}
-        {% endblock %}
-    </main>
-    <!-- ------------ start of footer --------------- -->
-    <footer class="container-fluid bg-dark text-light mt-3 custom-border-top">
-        <div class="container">
-            <div class="row p-3">
-                <div class="col-sm-6 col-md-4 widget-box">
-                    <h5 class="widget-title py-2">About Us</h5>
-                    <p class="text-justify">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos quibusdam praesentium dicta labore
-                        deserunt architecto voluptatem consectetur voluptas eius esse vero voluptates ducimus adipisci
-                        nulla quod totam, aut, dolorum reprehenderit!
-                    </p>
+        <div class="col-sm-6 col-lg-3">
+            <div class="card">
+                <img class="card-img-top" src="{% static 'images/sample_03.jpg' %}" alt="">
+                <div class="card-body">
+                    <h4 class="card-title text-danger">product name</h4>
+                    <p class="card-text">descriptions of the product and more </p>
+                    <a href="#" class="btn btn-sm btn-outline-danger">more...</a>
                 </div>
-                <div class="col-sm-6 col-md-4 widget-box">
-                    <h5 class="widget-title py-2">Contcat Us</h5>
-                    <p>
-                        <i class="fa fa-phone"></i>&nbsp;+98-21&nbsp;7757&nbsp;3752</p>
-                    <p>
-                        <i class="fa fa-mobile"></i>&nbsp;+98-912&nbsp;348&nbsp;7091</p>
-                    <p>
-                        <i class="fa fa-envelope"></i>&nbsp;info@gineau.com</p>
-                </div>
-
-                <div class="col-sm-6 col-md-4 widget-box">
-                    <h5 class="widget-title py-2">Follow Us</h5>
-                    <div class="social-network">
-                        <a href="https://facebook.com/gineau">
-                            <i class="fa fa-facebook"></i>
-                        </a>
-                        <a href="https://instagram/gineaudesign">
-                            <i class="fa fa-instagram"></i>
-                        </a>
-                        <a href="#">
-                            <i class="fa fa-send"></i>
-                        </a>
-                    </div>
-                    <div class="newsletter-form">
-                        <p>Stay in contact</p>
-                        <form action="" method="post">
-                            <input type="email" placeholder="email">
-                            <input type="submit" value="set!">
-                        </form>
-                    </div>
-                </div>
-
             </div>
         </div>
+        <div class="col-sm-6 col-lg-3">
+            <div class="card">
+                <img class="card-img-top" src="{% static 'images/sample_01.jpg' %}" alt="">
+                <div class="card-body">
+                    <h4 class="card-title text-danger">product name</h4>
+                    <p class="card-text">descriptions of the product and more </p>
+                    <a href="#" class="btn btn-sm btn-outline-danger">more...</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+            <div class="card">
+                <img class="card-img-top" src="{% static 'images/sample_02.jpg' %}" alt="">
+                <div class="card-body">
+                    <h4 class="card-title text-danger">product name</h4>
+                    <p class="card-text">descriptions of the product and more </p>
+                    <a href="#" class="btn btn-sm btn-outline-danger">more...</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-    </footer>
-    <!-- jQuery library -->
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
-    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
-    <!-- Popper JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 
-    <!-- Latest compiled JavaScript -->
-    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> -->
-    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
-    <!-- <script src="owlcarousel/owl.gacarousel.min.js"></script> -->
+<!-- ------------ start of Newsletter --------------- -->
+<div class="container newsletter-section container ">
+    <div class="row justify-content-center">
+        <div class="col-md-6 text-center align-self-center">
+            <h2 class="text-muted py-4 text-center custom-h2-title">Stay up to date.</h2>
+            <p class="lead py-2 py-md-4">Get notified about company news,
+                updates and be the first get early access to the
+                <strong>faster, simpler and smarter</strong>
+                way of presenting
+            </p>
+            <form method="post" action="" class="wow fadeInUp">
+                <div class="input-group input-group-lg mb-3 custom-input">
+                    <input type="text" class="form-control" placeholder="Your Email">
+                    <div class="input-group-append">
+                        <span class="input-group-text">Sign up</span>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
-    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
-
-    <script src="{% static 'js/wow.min.js' %}"></script>
-    <script>
-        new WOW().init();
-    </script>
-</body>
+{% endblock %}
