@@ -13,7 +13,7 @@
     <div class="col-md-6">
       <!--we need for loop here to print all images -->
       <!-- <img src="/home/rahimz/gineau/gineau/media/f_01.jpg" class="img-responsive" /> -->
-      <img src="{{ product.productImage.url }}" class="img-responsive" />
+      <img src="{{ product.productImage.url }}" class="img-responsive" alt="{{ product.imageAlt }}"/>
     </div>
     <div class="col-md-6">
       <h2 class="text-muted ">{{ product.productName }}</h2>
@@ -21,11 +21,10 @@
       <p class="lead py-2">
         {{ product.productDescript }}
       </p>
-      <span class="label label-info">
+      <span class="label label-info bg-warning">
         {{ product.productGenre }}
       </span>
-      <span class="label label-success">
-        
+      <span class="label label-success">        
         {{ product.productGroup }}
       </span>
     </div>
