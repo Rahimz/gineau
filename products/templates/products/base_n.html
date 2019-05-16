@@ -57,13 +57,13 @@
                     <div class="collapse navbar-collapse" id="sample-id">
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item">
-                                <a href="#" class="nav-link">Women</a>
+                                <a href="{% url 'products:womenproductlistview' %}" class="nav-link">Women</a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">Men</a>
+                                <a href="{% url 'products:menproductlistview' %}" class="nav-link">Men</a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">Contacts</a>
+                                <a href="#contacts" class="nav-link">Contacts</a>
                             </li>
                         </ul>
                         <button href="#" data-toggle="modal" data-target="#custom-modal"
@@ -130,7 +130,7 @@
         <div class="container">
             <div class="row p-3">
                 <div class="col-sm-6 col-md-4 widget-box">
-                    <h5 class="widget-title py-2">About Us</h5>
+                    <h5 class="widget-title py-2" id="contacts">About Us</h5>
                     <p class="text-justify">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos quibusdam praesentium dicta labore
                         deserunt architecto voluptatem consectetur voluptas eius esse vero voluptates ducimus adipisci
