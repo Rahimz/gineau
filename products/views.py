@@ -15,10 +15,20 @@ class HomeView(generic.ListView):
         return Product.objects.order_by('-productPublish')[:8:-1]
 
 
-def ProductListView(request):
+def WomenProductListView(request):
+    products = Product.objects.filter(productGenre="women")
     return render(request,
-                  'products/products_list.html',
-                  {})
+                  'products/products_list_w.html',
+                  {'products': products,
+                   'genre':'Women'})
+
+def MenProductListView(request):
+    products = Product.objects.filter(productGenre="men")
+    return render(request,
+                  'products/products_list_w.html',
+                  {'products': products,
+                   'genre':'Men'})
+
 
 class DetailView(generic.DetailView):
     # try:
