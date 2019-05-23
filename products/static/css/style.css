@@ -158,8 +158,12 @@ footer .newsletter-form form input[type=submit]:hover {
     color: #fff;
 }
 
+/* format of product detail page */
 
-/* /////////////////////////// */
+img .img-detail {
+    width: 100%;
+}
+
 /* OLD STYLE  */
 /* /////////////////////////// */
 
