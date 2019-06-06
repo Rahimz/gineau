@@ -6,10 +6,15 @@ from .models import Product
 from django.template import loader
 
 
-class HomeView(generic.ListView):
-    template_name = 'products/new_base.html'
-    context_object_name = 'latest_product_list'
-
+def HomeView(request):
+    products_w = Product.objects.filter(productGenre="women")
+    products_m = Product.objects.filter(productGenre="men")
+    return render(request,
+                  'products/new_base.html',
+                  {'products_w': products_w,
+                  'products_m': products_m,
+                   })
+    
     def get_queryset(self):
         """Return the last five published questions."""
         return Product.objects.order_by('-productPublish')[:8:-1]

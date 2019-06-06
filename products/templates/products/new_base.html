@@ -48,19 +48,18 @@
 <div class="container product-container position-relative">
     <h2 class="text-muted text-center py-4 custom-h2-title">Women's Products</h2>
     <div class="row wow fadeInUp">
-        {% if latest_product_list %}
-        {% for product in latest_product_list %}
+        {% if products_w %}
+        {% for product in products_w %}
 
         <div class="col-sm-6 col-lg-3">
             <div class="card">
                 {% if product.productImage %}
                 <img class="card-img-top" src="{{ product.productImage.url }}" alt="{{ product.imageAlt }}">
-                <!-- TODO: I should add Alt field to images model-->
+
                 {% else %}
                 <img class="card-img-top" src="{% static 'images/noimage.png' %}" alt="Gineau has no image here">
                 {% endif %}
 
-                <!-- <img class="card-img-top" src="{{ product.image.url }}" alt=""> -->
                 <div class="card-body">
                     <h4 class="card-title text-danger">{{ product.productName }}</h4>
                     <p class="card-text">{{ product.productDescript }}</p>
@@ -70,67 +69,42 @@
         </div>
         {% endfor %}
 
-
         {% else %}
-        <p>No products are available.</p>
+        <p class="lead center">No products are available.</p>
         {% endif %}
-
-
 
     </div>
 </div>
-
 
 <!-- ------------ start of Men products --------------- -->
 <div class="container product-container position-relative">
     <h2 class="text-muted text-center py-4 custom-h2-title">Men's Products</h2>
     <div class="row wow fadeInUp">
+        {% if products_m %}
+        {% for product in products_m %}
+
         <div class="col-sm-6 col-lg-3">
             <div class="card">
-                {% if product.image %}
-                <img class="card-img-top" src="{{ product.image.url }}" alt="">
-                <!-- TODO: I should add Alt field to images model-->
+                {% if product.productImage %}
+                <img class="card-img-top" src="{{ product.productImage.url }}" alt="{{ product.imageAlt }}">
+
                 {% else %}
-                <img class="card-img-top" src="{% static 'images/noimage.png' %}" alt="">
+                <img class="card-img-top" src="{% static 'images/noimage.png' %}" alt="Gineau has no image here">
                 {% endif %}
 
                 <div class="card-body">
-                    <h4 class="card-title text-danger">product name</h4>
-                    <p class="card-text">descriptions of the product and more </p>
-                    <a href="#" class="btn btn-sm btn-outline-danger">more...</a>
+                    <h4 class="card-title text-danger">{{ product.productName }}</h4>
+                    <p class="card-text">{{ product.productDescript }}</p>
+                    <a href="{% url 'products:detail' product.id %}" class="btn btn-sm btn-outline-danger">more...</a>
                 </div>
             </div>
         </div>
-        <div class="col-sm-6 col-lg-3">
-            <div class="card">
-                <img class="card-img-top" src="{% static 'images/sample_03.jpg' %}" alt="">
-                <div class="card-body">
-                    <h4 class="card-title text-danger">product name</h4>
-                    <p class="card-text">descriptions of the product and more </p>
-                    <a href="#" class="btn btn-sm btn-outline-danger">more...</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6 col-lg-3">
-            <div class="card">
-                <img class="card-img-top" src="{% static 'images/sample_01.jpg' %}" alt="">
-                <div class="card-body">
-                    <h4 class="card-title text-danger">product name</h4>
-                    <p class="card-text">descriptions of the product and more </p>
-                    <a href="#" class="btn btn-sm btn-outline-danger">more...</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6 col-lg-3">
-            <div class="card">
-                <img class="card-img-top" src="{% static 'images/sample_02.jpg' %}" alt="">
-                <div class="card-body">
-                    <h4 class="card-title text-danger">product name</h4>
-                    <p class="card-text">descriptions of the product and more </p>
-                    <a href="#" class="btn btn-sm btn-outline-danger">more...</a>
-                </div>
-            </div>
-        </div>
+        {% endfor %}
+
+        {% else %}
+        <p class="lead center">No products are available.</p>
+        {% endif %}
+
     </div>
 </div>
 
