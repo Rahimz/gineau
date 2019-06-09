@@ -174,3 +174,7 @@ img .img-detail {
 .navbar-brand{
     font-family: 'Stisfy', cursive;
 }
+
+.lightgray {
+    background-color: lightgray;
+}
