@@ -1,5 +1,4 @@
-Click==7.0
-Django==2.0.13
-pef==1.1.0
+Django==2.2.3
 Pillow==5.4.1
 pytz==2018.9
+sqlparse==0.3.0
