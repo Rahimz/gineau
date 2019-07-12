@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <!-- <title>Gineau Leathers</title> -->
-    <title>{% block title %}{% endblock %}</title>
+    <title>Gineau {% block title %}{% endblock %}</title>
     <!-- favicon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{% static "images/favicon.png" %}">
 
@@ -51,10 +51,10 @@
                     <a href="http://gineau.com" class="navbar-brand text-danger">
                         <img src="{% static "images/gineau_nav.png" %}" alt="gineau logo">
                     </a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sample-id">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#responsive">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <div class="collapse navbar-collapse" id="sample-id">
+                    <div class="collapse navbar-collapse" id="responsive">
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item">
                                 <a href="{% url 'products:womenproductlistview' %}" class="nav-link">Women</a>
