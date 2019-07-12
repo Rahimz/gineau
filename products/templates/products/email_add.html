@@ -1,0 +1,26 @@
+<head>
+    <!-- this call the base.html-->
+    {% extends 'products/base_n.html' %}
+    <!-- this change the name of page with the title block -->
+    {% block title %}Product Detail{% endblock %}
+
+</head>
+
+{% block content %}
+<div class="container">
+    <div class="row mt-5 pt-5 ">
+        <div class="col-md-12">
+            <h2 class="text-center"> Your email is registered! </h2>
+        </div>
+        <div class="col-md-12 pt-3">
+            <p class="lead text-center">We just send you you important updates from Gineau.</p>
+            <p class="lead text-center">We never send you any kind of spam.</p>
+        </div>
+        <div class="col-md-12 text-center p-5">
+            <a class="btn btn-outline-danger" href="{% url 'products:home' %}">Back to Gineau</a>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
