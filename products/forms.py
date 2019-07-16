@@ -1,6 +1,7 @@
 from django import forms
+from .models import Email
 
 
-
-class AddEmail(forms.Form):
+class AddEmailForm(forms.Form):
     email = forms.EmailField()
+    

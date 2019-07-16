@@ -11,7 +11,7 @@ urlpatterns = [
     path('women/', views.WomenProductListView, name='womenproductlistview'),
     path('men/', views.MenProductListView, name='menproductlistview'),
     path('<int:pk>/', views.DetailView.as_view(), name='detail'),
-    path('user/email', views.add_new_email, name='email_add'),
+    path('user/email/', views.add_new_email, name='email_add'),
   
     path('<int:product_id>/images/', views.prdimage, name='prdimage'),
 	path('blog/', views.blog.as_view(), name='blog'),

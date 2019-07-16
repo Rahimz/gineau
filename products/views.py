@@ -4,7 +4,7 @@ from django.views import generic
 
 from .models import Product
 from django.template import loader
-from .forms import AddEmail
+from .forms import AddEmailForm
 
 def HomeView(request):
     products_w = Product.objects.filter(productGenre="women")
@@ -48,16 +48,22 @@ class DetailView(generic.DetailView):
     model = Product
     template_name = 'products/detail.html'
 
-
+ 
 def add_new_email(request):    
-    form = AddEmail(request.POST)
-    if form.is_valid():
-        cd = form.cleaned_data
-        email = form.save(commit=True)
+    if request.method == 'POST':
+        print("im in method")
+        form = AddEmailForm(request.POST)
+        # the is_valid is not working
+        if form.is_valid():        
+            print("im in if")
+            cd = form.cleaned_data['email']
+            form.save()
+            
     else:
-        form = AddEmail()
+        print("im in else")
+        form = AddEmailForm()
     return render(request, 
-                 'products/email_add.html',
+                 'products/home.html',
                  {'form': form})
 
 
