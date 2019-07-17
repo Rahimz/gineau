@@ -4,6 +4,14 @@
 
 {% load static %}
 
+{% block top_email_form %}
+<form method="post" action="" class="form-group" novalidate>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-sm btn-outline-danger">Submit</button>
+</form>
+{%  endblock %}
+
 {% block content %}
 
 <div id="carousel-sample" class="carousel slide mt-5" data-ride="carousel">
@@ -105,29 +113,6 @@
         <p class="lead center">No products are available.</p>
         {% endif %}
 
-    </div>
-</div>
-
-
-<!-- ------------ start of Newsletter --------------- -->
-<div class="container newsletter-section container ">
-    <div class="row justify-content-center">
-        <div class="col-md-6 text-center align-self-center">
-            <h2 class="text-muted py-4 text-center custom-h2-title">Stay up to date.</h2>
-            <p class="lead py-2 py-md-4">Get notified about company news,
-                updates and be the first get early access to the
-                <strong>faster, simpler and smarter</strong>
-                way of presenting
-            </p>
-            <form method="post" action="" class="wow fadeInUp">
-                <div class="input-group input-group-lg mb-3 custom-input">
-                    <input type="text" class="form-control" placeholder="Your Email">
-                    <div class="input-group-append">
-                        <span class="input-group-text">Sign up</span>
-                    </div>
-                </div>
-            </form>
-        </div>
     </div>
 </div>
 

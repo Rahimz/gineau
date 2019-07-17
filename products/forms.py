@@ -2,6 +2,9 @@ from django import forms
 from .models import Email
 
 
-class AddEmailForm(forms.Form):
-    email = forms.EmailField()
+class AddEmailForm(forms.ModelForm):
+    
+    class Meta:
+        model = Email
+        fields = ('email',)
     

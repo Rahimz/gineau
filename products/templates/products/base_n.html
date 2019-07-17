@@ -80,12 +80,8 @@
                             </div>
                             <div class="modal-body">
                                 
-                                <form method="post" action="/user/email/" class="form-group">
-                                    {% csrf_token %}
-                                    <label for="user_email">Email:</label>
-                                    <input type="text" id="user_email" class="form-control mb-3">
-                                    <input type="submit" class="btn btn-sm btn-outline-danger" value="submit">
-                                </form>
+                                {% block top_email_form %}
+                                {%  endblock %}
                                 
                             </div>
                             <div class="modal-footer">
@@ -102,29 +98,7 @@
         {% block content %}
         {% endblock %}
 
-        <!-- ------------ start of Newsletter --------------- -->
-        <div class="container newsletter-section container ">
-            <div class="row justify-content-center">
-                <div class="col-md-6 text-center align-self-center">
-                    <h2 class="text-muted py-4 text-center custom-h2-title">Stay up to date.</h2>
-                    <p class="lead py-2 py-md-4">Get notified about company news,
-                        updates and be the first get early access to the
-                        <strong>faster, simpler and smarter</strong>
-                        way of presenting
-                    </p>
-                    <form method="post" action="" class="wow fadeInUp">
-                        <div class="input-group input-group-lg mb-3 custom-input">
-                            <input type="text" class="form-control" placeholder="Your Email">
-                            <div class="input-group-append">
-                                <span class="input-group-text">Sign up</span>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-
+        
     </main>
     <!-- ------------ start of footer --------------- -->
     <footer class="container-fluid bg-dark text-light mt-3 custom-border-top">
@@ -137,6 +111,7 @@
                         deserunt architecto voluptatem consectetur voluptas eius esse vero voluptates ducimus adipisci
                         nulla quod totam, aut, dolorum reprehenderit!
                     </p>
+
                 </div>
                 <div class="col-sm-6 col-md-4 widget-box">
                     <h5 class="widget-title py-2">Contcat Us</h5>
@@ -161,13 +136,7 @@
                             <i class="fa fa-send"></i>
                         </a>
                     </div>
-                    <div class="newsletter-form">
-                        <p>Stay in contact</p>
-                        <form action="" method="post">
-                            <input type="email" placeholder="email">
-                            <input type="submit" value="set!">
-                        </form>
-                    </div>
+
                 </div>
 
             </div>

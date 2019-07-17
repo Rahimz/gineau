@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse, Http404
 from django.views import generic
 
@@ -6,15 +6,35 @@ from .models import Product
 from django.template import loader
 from .forms import AddEmailForm
 
+
+def add_email(req):
+    form = AddEmailForm(req.POST)        
+    if form.is_valid():
+        email = form.save(commit=False)      
+        email.save()
+    else:        
+        form = AddEmailForm()
+    return form
+
 def HomeView(request):
     products_w = Product.objects.filter(productGenre="women")
     products_m = Product.objects.filter(productGenre="men")
+    
+    form = AddEmailForm()
+    if request.method == "POST":
+        form = AddEmailForm(request.POST)        
+        if form.is_valid():
+            email = form.save(commit=False)      
+            email.save()                
+    else:        
+        form = AddEmailForm()
+
     return render(request,
                   'products/new_base.html',
                   {'products_w': products_w,
                   'products_m': products_m,
-                   })
-    
+                   'form': form})
+
     def get_queryset(self):
         """Return the last five published questions."""
         return Product.objects.order_by('-productPublish')[:8:-1]
@@ -22,17 +42,40 @@ def HomeView(request):
 
 def WomenProductListView(request):
     products = Product.objects.filter(productGenre="women")
+
+    form = AddEmailForm()
+    if request.method == "POST":
+       form = AddEmailForm(request.POST)        
+       if form.is_valid():
+           email = form.save(commit=False)
+           email.save()               
+    else:        
+        form = AddEmailForm()
+
     return render(request,
                   'products/products_list_w.html',
                   {'products': products,
-                   'genre':'Women'})
+                   'genre': 'Women',
+                   'form': form})
+
 
 def MenProductListView(request):
     products = Product.objects.filter(productGenre="men")
+
+    form = AddEmailForm()
+    if request.method == "POST":
+        form = AddEmailForm(request.POST)        
+        if form.is_valid():
+            email = form.save(commit=False)      
+            email.save()              
+    else:        
+        form = AddEmailForm()
+        
     return render(request,
                   'products/products_list_w.html',
                   {'products': products,
-                   'genre':'Men'})
+                   'genre': 'Men',
+                   'form': form})
 
 
 class DetailView(generic.DetailView):
@@ -48,23 +91,27 @@ class DetailView(generic.DetailView):
     model = Product
     template_name = 'products/detail.html'
 
- 
-def add_new_email(request):    
-    if request.method == 'POST':
-        print("im in method")
-        form = AddEmailForm(request.POST)
-        # the is_valid is not working
-        if form.is_valid():        
-            print("im in if")
-            cd = form.cleaned_data['email']
-            form.save()
-            
-    else:
-        print("im in else")
-        form = AddEmailForm()
-    return render(request, 
-                 'products/home.html',
-                 {'form': form})
+
+def add_new_email(request):
+    pass
+    # products_w = Product.objects.filter(productGenre="women")
+    # products_m = Product.objects.filter(productGenre="men")
+    # if request.method == "POST":        
+    #     form = AddEmailForm(request.POST)        
+    #     if form.is_valid():
+    #         email = form.save(commit=False)      
+    #         email.save()
+    #         # return redirect('/')   
+
+    # else:        
+    #     form = AddEmailForm()
+
+    # return render(request,
+    #             'products/new_base.html',
+    #             {'products_w': products_w,
+    #             'products_m': products_m,
+    #             'form': form})
+
 
 
 class IndexView(generic.ListView):

@@ -40,8 +40,7 @@ class Image(models.Model):
 
 class Email(models.Model):
 	email = models.EmailField()
-	created = models.DateTimeField(auto_now_add=True)
-
+	
 
 	def __str__(self):
 		return str(self.email)

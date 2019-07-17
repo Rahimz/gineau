@@ -6,6 +6,14 @@
 
 </head>
 
+{% block top_email_form %}
+<form method="post" action="" class="form-group" novalidate>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-sm btn-outline-danger">Submit</button>
+</form>
+{%  endblock %}
+
 {% block content %}
 
 <div class="container mt-5">
