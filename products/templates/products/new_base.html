@@ -70,7 +70,7 @@
 
                 <div class="card-body">
                     <h4 class="card-title text-danger">{{ product.productName }}</h4>
-                    <p class="card-text">{{ product.productDescript }}</p>
+                    <p class="card-text">{{ product.productDescript|truncatewords:15 }}</p>
                     <a href="{% url 'products:detail' product.id %}" class="btn btn-sm btn-outline-danger">more...</a>
                 </div>
             </div>
@@ -102,7 +102,7 @@
 
                 <div class="card-body">
                     <h4 class="card-title text-danger">{{ product.productName }}</h4>
-                    <p class="card-text">{{ product.productDescript }}</p>
+                    <p class="card-text">{{ product.productDescript|truncatewords:15 }}</p>
                     <a href="{% url 'products:detail' product.id %}" class="btn btn-sm btn-outline-danger">more...</a>
                 </div>
             </div>
