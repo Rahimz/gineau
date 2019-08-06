@@ -3,14 +3,14 @@
   {% extends 'products/base_n.html' %}
   <!-- this change the name of page with the title block -->
   {% block title %}Product Detail{% endblock %}
-
+  {% load static %}
 </head>
 
 {% block top_email_form %}
 <form method="post" action="" class="form-group" novalidate>
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" class="btn btn-sm btn-outline-danger">Submit</button>
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit" class="btn btn-sm btn-outline-danger">Submit</button>
 </form>
 {%  endblock %}
 
@@ -20,8 +20,11 @@
   <div class="row mt-5 pt-5 ">
     <div class="col-md-6 justify-content-center">
       <!--we need for loop here to print all images -->
-      <!-- <img src="/home/rahimz/gineau/gineau/media/f_01.jpg" class="img-responsive" /> -->
+      {% if product.productImage %}
       <img src="{{ product.productImage.url }}" style="width: 100%" class="img-detail" alt="{{ product.imageAlt }}" />
+      {% else %}
+      <img class="card-img-top" src="{% static 'images/noimage.png' %}" alt="Gineau has no image here">
+      {% endif %}
     </div>
     <div class="col-md-6">
       <h2 class="text-muted ">{{ product.productName }}</h2>
@@ -31,8 +34,8 @@
       </span>
       {% else %}
       <span class="badge badge-info">
-          {{ product.productGenre }}
-        </span>
+        {{ product.productGenre }}
+      </span>
       {% endif %}
 
       <span class="badge badge-success">
@@ -44,7 +47,8 @@
       </p>
       <div class="btn-group">
         <button class="btn btn-sm btn-warning btn-warning" data-toggle="collapse" data-target="#size">Size</button>
-        <button class="btn btn-sm btn-warning btn-warning" data-toggle="collapse" data-target="#features">Features</button>
+        <button class="btn btn-sm btn-warning btn-warning" data-toggle="collapse"
+          data-target="#features">Features</button>
 
       </div>
       <div id="size" class="collapse">
