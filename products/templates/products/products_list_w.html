@@ -22,6 +22,9 @@
 
 <div class="container product-container position-relative">
     <h1 class="text-muted text-center mt-5 py-4 custom-h2-title">{{ genre }}'s Products</h1>
+    {% if tag %}
+    <h2 class="text-muted text-center mt-4 py-3 ">Products with "{{ tag.name }}" feature</h2>
+    {% endif %}
     <div class="row wow fadeInUp">
         {% if products %}
         {% for product in products %}
@@ -36,7 +39,7 @@
 
                 <!-- <img class="card-img-top" src="{{ product.image.url }}" alt=""> -->
                 <div class="card-body">
-                    <h4 class="card-title text-danger">{{ product.productName }}</h4>
+                    <h4 class="card-title text-danger">{{ product.productName }}</h4>                   
                     <p class="card-text">{{ product.productDescript|truncatewords:15 }}</p>
                     <a href="{% url 'products:detail' product.id %}" class="btn btn-sm btn-outline-danger">more...</a>
                 </div>

@@ -5,6 +5,7 @@ from django.views import generic
 from .models import Product
 from django.template import loader
 from .forms import AddEmailForm
+from taggit.models import Tag
 
 
 def add_email(req):
@@ -39,8 +40,8 @@ def HomeView(request):
         """Return the last five published questions."""
         return Product.objects.order_by('-productPublish')[:8:-1]
 
-
-def WomenProductListView(request):
+# TODO:: Merging two view of men and women in one view
+def WomenProductListView(request, tag_slug=None):
     products = Product.objects.filter(productGenre="women")
 
     form = AddEmailForm()
@@ -52,11 +53,17 @@ def WomenProductListView(request):
     else:        
         form = AddEmailForm()
 
+    tag = None
+    if tag_slug:
+        tag = get_object_or_404(Tag, slug=tag_slug)
+        products = products.filter(tags__in=[tag])
+
     return render(request,
                   'products/products_list_w.html',
                   {'products': products,
                    'genre': 'Women',
-                   'form': form})
+                   'form': form,
+                   'tag' : tag})
 
 
 def MenProductListView(request):

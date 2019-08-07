@@ -74,9 +74,10 @@
       <div id="features" class="collapse">
         <p class="tags lightgray p-1 m-1 ">
           {% for tag in product.tags.all %}
-          <span class="badge badge-danger">
-            {{ tag }}
-          </span>
+          <a href="{% url "products:women_product_list_by_tag" tag.slug%}" class="badge badge-danger">
+              {{ tag.name }}
+          </a>
+          {% if not forloop.last %} {% endif %}
           {% endfor %}       
         </p>
       </div>
