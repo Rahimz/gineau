@@ -52,9 +52,23 @@
 
       </div>
       <div id="size" class="collapse">
-        <p class="lightgray p-1 m-1">
-          {{ product.productSize }}
-        </p>
+        <table class="table p-1 m-1" >
+          <thead>
+            <tr class="table-secondary">
+              <th>Height</th>
+              <th>Width</th>
+              <th>Depth</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="table-secondary">
+              <td>{{ product.productSizeH }}</td>
+              <td>{{ product.productSizeW }}</td>
+              <td>{{ product.productSizeD }}</td>
+            </tr>
+          </tbody>
+
+        </table>
       </div>
 
       <div id="features" class="collapse">

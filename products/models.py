@@ -25,6 +25,15 @@ class Product(models.Model):
 									choices=GROUP_CHOICES,
 									default='handbag')									
 	productSize = models.CharField(max_length=250)
+	productSizeH = models.IntegerField(null=True,
+									   blank=True,
+									   verbose_name='Height')
+	productSizeW = models.IntegerField(null=True,
+									   blank=True,
+									   verbose_name='Width')
+	productSizeD = models.IntegerField(null=True,
+									   blank=True,
+									   verbose_name='Depth')									   
 	productDescript = models.TextField()
 	productImage = models.FileField(null=True, blank=True)
 	imageAlt = models.CharField(max_length=250,
