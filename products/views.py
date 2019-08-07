@@ -40,9 +40,14 @@ def HomeView(request):
         """Return the last five published questions."""
         return Product.objects.order_by('-productPublish')[:8:-1]
 
-# TODO:: Merging two view of men and women in one view
-def WomenProductListView(request, tag_slug=None):
-    products = Product.objects.filter(productGenre="women")
+
+def ProductListView(request, genre=None, tag_slug=None):
+    if genre in ('men', 'women'):
+        products = Product.objects.filter(productGenre=genre)
+    elif genre == None:
+        products = Product.objects.all()
+    else:
+        raise Http404("Product does not exist")
 
     form = AddEmailForm()
     if request.method == "POST":
@@ -61,28 +66,11 @@ def WomenProductListView(request, tag_slug=None):
     return render(request,
                   'products/products_list_w.html',
                   {'products': products,
-                   'genre': 'Women',
+                   'genre': genre,
                    'form': form,
                    'tag' : tag})
 
 
-def MenProductListView(request):
-    products = Product.objects.filter(productGenre="men")
-
-    form = AddEmailForm()
-    if request.method == "POST":
-        form = AddEmailForm(request.POST)        
-        if form.is_valid():
-            email = form.save(commit=False)      
-            email.save()              
-    else:        
-        form = AddEmailForm()
-        
-    return render(request,
-                  'products/products_list_w.html',
-                  {'products': products,
-                   'genre': 'Men',
-                   'form': form})
 
 
 class DetailView(generic.DetailView):

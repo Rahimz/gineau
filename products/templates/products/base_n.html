@@ -57,10 +57,10 @@
                     <div class="collapse navbar-collapse" id="responsive">
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item">
-                                <a href="{% url 'products:womenproductlistview' %}" class="nav-link">Women</a>
+                                <a href="{% url 'products:productlistview' 'women' %}" class="nav-link">Women</a>
                             </li>
                             <li class="nav-item">
-                                <a href="{% url 'products:menproductlistview' %}" class="nav-link">Men</a>
+                                <a href="{% url 'products:productlistview' 'men' %}" class="nav-link">Men</a>
                             </li>
                             <li class="nav-item">
                                 <a href="#contacts" class="nav-link">Contacts</a>

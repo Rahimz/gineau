@@ -8,9 +8,8 @@ app_name = 'products'
 urlpatterns = [
     # path('', views.IndexView.as_view(), name='index'),
     path('', views.HomeView, name='home'),
-    path('women/', views.WomenProductListView, name='womenproductlistview'),
-    path('tag/<slug:tag_slug>/', views.WomenProductListView, name='women_product_list_by_tag'),
-    path('men/', views.MenProductListView, name='menproductlistview'),
+    path('products/<str:genre>/', views.ProductListView, name='productlistview'),
+    path('tag/<slug:tag_slug>/', views.ProductListView, name='product_list_by_tag'),
     path('<int:pk>/', views.DetailView.as_view(), name='detail'),
     path('user/email/', views.add_new_email, name='email_add'),
   
