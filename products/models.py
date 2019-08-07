@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from taggit.managers import TaggableManager
 
 
 
@@ -41,6 +42,8 @@ class Product(models.Model):
 								blank=True)
 	productPublish = models.DateTimeField('date published')
 
+
+	tags = TaggableManager()
 
 	def __str__(self):
 		return self.productName

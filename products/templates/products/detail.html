@@ -52,7 +52,7 @@
 
       </div>
       <div id="size" class="collapse">
-        <table class="table p-1 m-1" >
+        <table class="table p-1 m-1">
           <thead>
             <tr class="table-secondary">
               <th>Height</th>
@@ -72,10 +72,12 @@
       </div>
 
       <div id="features" class="collapse">
-        <p class="lightgray p-1 m-1">
-          two small pocket <br>
-          linning <br>
-          a resizable hand
+        <p class="tags lightgray p-1 m-1 ">
+          {% for tag in product.tags.all %}
+          <span class="badge badge-danger">
+            {{ tag }}
+          </span>
+          {% endfor %}       
         </p>
       </div>
 
