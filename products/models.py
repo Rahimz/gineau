@@ -5,14 +5,25 @@ from django.utils import timezone
 
 class Product(models.Model):
 	STATUS_CHOICES = (
-    ('men', 'Men'),
-    ('women', 'Women'),
-    )
+    				  ('men', 'Men'),
+					  ('women', 'Women'),
+					 )
+	GROUP_CHOICES = (
+				     ('handbag', 'Handbag'),
+					 ('backpack', 'Backpack'),
+					 ('purse', 'Purse'),
+					 ('accessory', 'Accessory'),
+					 ('bag', 'Bag'),
+					 ('briefcase', 'Briefcase'),
+					 ('wallet', 'Wallet'),					 
+	)
 	productName = models.CharField(max_length=250)
 	productGenre = models.CharField(max_length=50,
 									choices=STATUS_CHOICES, 
-									default='draft')
-	productGroup = models.CharField(max_length=250)
+									default='women')
+	productGroup = models.CharField(max_length=250,
+									choices=GROUP_CHOICES,
+									default='handbag')									
 	productSize = models.CharField(max_length=250)
 	productDescript = models.TextField()
 	productImage = models.FileField(null=True, blank=True)
