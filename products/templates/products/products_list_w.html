@@ -10,6 +10,8 @@
 
 {% block top_email_form %}
 <form method="post" action="" class="form-group" novalidate>
+    <p class="">Put your email to get the latests from Gineau</p>
+    <p><b>We never spam you!</b></p>
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit" class="btn btn-sm btn-outline-danger">Submit</button>
@@ -23,7 +25,7 @@
 <div class="container product-container position-relative">
     {% if genre %}
     <h2 class="text-muted text-center mt-5 py-4 custom-h2-title">{{ genre }}'s Products</h2>
-    {% endif %}    
+    {% endif %}
     {% if tag %}
     <h2 class="text-muted text-center mt-5 py-4 custom-h2-title">Products with "{{ tag.name }}"</h2>
     {% endif %}
@@ -41,7 +43,7 @@
 
                 <!-- <img class="card-img-top" src="{{ product.image.url }}" alt=""> -->
                 <div class="card-body">
-                    <h4 class="card-title text-danger">{{ product.productName }}</h4>                   
+                    <h4 class="card-title text-danger">{{ product.productName }}</h4>
                     <p class="card-text">{{ product.productDescript|truncatewords:15 }}</p>
                     <a href="{% url 'products:detail' product.id %}" class="btn btn-sm btn-outline-danger">more...</a>
                 </div>

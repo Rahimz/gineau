@@ -6,6 +6,8 @@
 
 {% block top_email_form %}
 <form method="post" action="" class="form-group" novalidate>
+    <p class="">Put your email to get the latests from Gineau</p>
+    <p><b>We never spam you!</b></p>
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit" class="btn btn-sm btn-outline-danger">Submit</button>
