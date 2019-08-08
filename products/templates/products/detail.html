@@ -77,18 +77,26 @@
         <p class="tags lightgray p-1 m-1 ">
           {% for tag in product.tags.all %}
           <a href="{% url "products:product_list_by_tag" tag.slug %}" class="badge badge-danger">
-              {{ tag.name }}
+            {{ tag.name }}
           </a>
           {% if not forloop.last %} {% endif %}
-          {% endfor %}       
+          {% endfor %}
         </p>
       </div>
 
-
+      
     </div>
-
+    <hr class="mute mt-5">
   </div>
-  <hr class="mute mt-5">
+      <div class="row">
+        <div class="container">
+          <img src="{{ product.image1.url }}" style="width: 15%" class="img-detail" alt="gineau" />
+          <img src="{{ product.image2.url }}" style="width: 15%" class="img-detail" alt="gineau" />
+          <img src="{{ product.image3.url }}" style="width: 15%" class="img-detail" alt="gineau" />
+          <img src="{{ product.image4.url }}" style="width: 15%" class="img-detail" alt="gineau" />
+          <img src="{{ product.image5.url }}" style="width: 15%" class="img-detail" alt="gineau" />
+        </div>
+      </div>
 </div>
 
 <div>

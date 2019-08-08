@@ -37,9 +37,17 @@ class Product(models.Model):
 									   verbose_name='Depth')									   
 	productDescript = models.TextField()
 	productImage = models.FileField(null=True, blank=True)
+	
+	image1 = models.ImageField(null=True, blank=True)
+	image2 = models.ImageField(null=True, blank=True)
+	image3 = models.ImageField(null=True, blank=True)
+	image4 = models.ImageField(null=True, blank=True)
+	image5 = models.ImageField(null=True, blank=True)
 	imageAlt = models.CharField(max_length=250,
 								null=True,
 								blank=True)
+	votes = models.IntegerField(default=0)
+	
 	productPublish = models.DateTimeField('date published')
 
 
@@ -50,15 +58,19 @@ class Product(models.Model):
 
 
 class Image(models.Model):
-	product = models.ForeignKey(Product,
+	product = models.OneToOneField(Product,
 								related_name='image',
 								on_delete=models.CASCADE)
 	#productName = self.productName
-	image = models.ImageField(null=True, blank=True)
+	image1 = models.ImageField(null=True, blank=True)
+	image2 = models.ImageField(null=True, blank=True)
+	image3 = models.ImageField(null=True, blank=True)
+	image4 = models.ImageField(null=True, blank=True)
+	image5 = models.ImageField(null=True, blank=True)
 	votes = models.IntegerField(default=0)
 
 	def __str__(self):
-		return str(self.product_id)
+		return str(self.product.productName)
 
 
 class Email(models.Model):

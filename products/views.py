@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse, Http404
 from django.views import generic
 
-from .models import Product
+from .models import Product, Image
 from django.template import loader
 from .forms import AddEmailForm
 from taggit.models import Tag
@@ -79,7 +79,7 @@ def ProductListView(request, genre=None, tag_slug=None):
 
 def DetailView(request, pk):
     product = get_object_or_404(Product, pk=pk)
-
+    
     form = AddEmailForm()
     if request.method == "POST":
        form = AddEmailForm(request.POST)        
@@ -93,7 +93,7 @@ def DetailView(request, pk):
     return render(request,
                   'products/detail.html',                  
                   {'product': product,
-                  'form': form})
+                  'form': form,})
 
 
 def add_new_email(request):
