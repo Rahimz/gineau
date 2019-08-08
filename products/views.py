@@ -45,7 +45,8 @@ def HomeView(request):
 
 def ProductListView(request, genre=None, tag_slug=None):
     if genre in ('men', 'women'):
-        products = get_object_or_404(Product, productGenre=genre)
+        products = Product.objects.filter(productGenre=genre)
+        # products = get_object_or_404(Product, productGenre=genre)
     elif genre == None:
         products = Product.objects.all()
         # products = get_object_or_404(Product)
