@@ -63,7 +63,7 @@ class Image(models.Model):
 
 class Email(models.Model):
 	email = models.EmailField()
-	
+	date = models.DateTimeField()
 
 	def __str__(self):
 		return str(self.email)

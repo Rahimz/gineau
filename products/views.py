@@ -6,6 +6,7 @@ from .models import Product
 from django.template import loader
 from .forms import AddEmailForm
 from taggit.models import Tag
+from django.utils import timezone
 
 
 def add_email(req):
@@ -25,7 +26,8 @@ def HomeView(request):
     if request.method == "POST":
         form = AddEmailForm(request.POST)        
         if form.is_valid():
-            email = form.save(commit=False)      
+            email = form.save(commit=False)
+            email.date = timezone.now()
             email.save()                
     else:        
         form = AddEmailForm()
@@ -43,9 +45,10 @@ def HomeView(request):
 
 def ProductListView(request, genre=None, tag_slug=None):
     if genre in ('men', 'women'):
-        products = Product.objects.filter(productGenre=genre)
+        products = get_object_or_404(Product, productGenre=genre)
     elif genre == None:
         products = Product.objects.all()
+        # products = get_object_or_404(Product)
     else:
         raise Http404("Product does not exist")
 
@@ -54,6 +57,7 @@ def ProductListView(request, genre=None, tag_slug=None):
        form = AddEmailForm(request.POST)        
        if form.is_valid():
            email = form.save(commit=False)
+           email.date = timezone.now()
            email.save()               
     else:        
         form = AddEmailForm()
@@ -72,19 +76,23 @@ def ProductListView(request, genre=None, tag_slug=None):
 
 
 
+def DetailView(request, pk):
+    product = get_object_or_404(Product, pk=pk)
 
-class DetailView(generic.DetailView):
-    # try:
-    #    product = Product.objects.get(pk=product_id)
-    # except Product.DoesNotExist:
-    #    raise Http404("Product does not exist")
+    form = AddEmailForm()
+    if request.method == "POST":
+       form = AddEmailForm(request.POST)        
+       if form.is_valid():
+           email = form.save(commit=False)
+           email.date = timezone.now()
+           email.save()               
+    else:        
+        form = AddEmailForm()
 
-    # version 2
-    # product = get_object_or_404(Product, pk=product_id)
-    # return render(request, 'products/detail.html', {'product':product})
-
-    model = Product
-    template_name = 'products/detail.html'
+    return render(request,
+                  'products/detail.html',                  
+                  {'product': product,
+                  'form': form})
 
 
 def add_new_email(request):
