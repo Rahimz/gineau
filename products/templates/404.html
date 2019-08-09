@@ -1,0 +1,30 @@
+<head>
+    <!-- this call the base.html-->
+    {% extends 'products/base_n.html' %}
+    <!-- this change the name of page with the title block -->
+    {% block title %}404: oops!{% endblock %}
+    {% load static %}
+</head>
+
+{% block top_email_form %}
+<form method="post" action="" class="form-group" novalidate>
+    <p class="">Put your email to get the latests from Gineau</p>
+    <p><b>We never spam you!</b></p>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-sm btn-outline-danger">Submit</button>
+</form>
+{%  endblock %}
+
+{% block content %}
+
+<div class="container mt-5">
+    <div class="row mt-5 pt-5 text-center">
+        <div class="col-md-12 ">
+            <h2 class="text-muted center">404 Error: There is nothing here!</h2>
+            <a href="{% url "products:home" %}" class="btn btn-danger my-5 " >Gineau Homepage</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
