@@ -37,14 +37,10 @@ def HomeView(request):
         return Product.objects.order_by('-productPublish')[:8:-1]
 
 
-def ProductListView(request, genre=None, tag_slug=None):
-    if genre in ('men', 'women'):
-        products = Product.objects.filter(productGenre=genre)
-    elif genre == None:
-        products = Product.objects.all()
-    else:
-        raise Http404("Product does not exist")
-
+def WomenListView(request):
+    genre = 'women'
+    products = Product.objects.filter(productGenre=genre)
+    
     form = AddEmailForm()
     if request.method == "POST":
        form = AddEmailForm(request.POST)        
@@ -55,18 +51,59 @@ def ProductListView(request, genre=None, tag_slug=None):
     else:        
         form = AddEmailForm()
 
+    return render(request,
+                  'products/products_list_w.html',
+                  {'products': products,
+                   'genre': genre,
+                   'form': form})
+
+
+def MenListView(request, tag_slug=None):
+    genre = 'men'
+    products = Product.objects.filter(productGenre=genre)
+    
+    form = AddEmailForm()
+    if request.method == "POST":
+        form = AddEmailForm(request.POST)        
+        if form.is_valid():
+            email = form.save(commit=False)
+            email.date = timezone.now()
+            email.save()               
+    else:        
+        form = AddEmailForm()
+
+    return render(request,
+                    'products/products_list_w.html',
+                    {'products': products,
+                    'genre': genre,
+                    'form': form})
+
+
+def ProductListView(request, tag_slug=None):
+    products = Product.objects.all()
+    genre = None
+    
+    form = AddEmailForm()
+    if request.method == "POST":
+        form = AddEmailForm(request.POST)        
+        if form.is_valid():
+            email = form.save(commit=False)
+            email.date = timezone.now()
+            email.save()               
+    else:        
+        form = AddEmailForm()
+
     tag = None
     if tag_slug:
         tag = get_object_or_404(Tag, slug=tag_slug)
         products = products.filter(tags__in=[tag])
 
     return render(request,
-                  'products/products_list_w.html',
-                  {'products': products,
-                   'genre': genre,
-                   'form': form,
-                   'tag' : tag})
-
+                    'products/products_list_w.html',
+                    {'products': products,
+                    'genre': genre,
+                    'form': form,
+                    'tag' : tag})
 
 def add_email(req):
     form = AddEmailForm(req.POST)        
