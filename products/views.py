@@ -78,8 +78,8 @@ def add_email(req):
     return form                   
                    
 
-def DetailView(request, pk):
-    product = get_object_or_404(Product, pk=pk)
+def DetailView(request, prd):
+    product = get_object_or_404(Product, slug=prd)
     
     form = AddEmailForm()
     if request.method == "POST":

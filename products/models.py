@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from taggit.managers import TaggableManager
+from django.urls import reverse
 
 
 
@@ -19,7 +20,7 @@ class Product(models.Model):
 					 ('wallet', 'Wallet'),					 
 	)
 	productName = models.CharField(max_length=250)
-	slug = models.SlugField(max_length=250)
+	slug = models.SlugField(max_length=250, unique=True)
 	productGenre = models.CharField(max_length=50,
 									choices=STATUS_CHOICES, 
 									default='women')
@@ -53,6 +54,9 @@ class Product(models.Model):
 
 
 	tags = TaggableManager()
+
+	def get_absolute_url(self):
+		return reverse('products:detail', args=[self.slug])
 
 	def __str__(self):
 		return self.productName

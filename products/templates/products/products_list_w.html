@@ -42,11 +42,13 @@
                 {% endif %}
 
                 <!-- <img class="card-img-top" src="{{ product.image.url }}" alt=""> -->
-                <div class="card-body">
-                    <h4 class="card-title text-danger">{{ product.productName }}</h4>
-                    <p class="card-text">{{ product.productDescript|truncatewords:15 }}</p>
-                    <a href="{% url 'products:detail' product.id %}" class="btn btn-sm btn-outline-danger">more...</a>
-                </div>
+                <a href="{{ product.get_absolute_url }}">
+                    <div class="card-body">
+                        <h4 class="card-title text-danger">{{ product.productName }}</h4>
+                        <p class="card-text">{{ product.productDescript|truncatewords:15 }}</p>
+                        <button class="btn btn-sm btn-outline-danger">more...</button>
+                    </div>
+                </a>
             </div>
         </div>
         {% endfor %}

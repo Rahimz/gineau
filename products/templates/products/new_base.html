@@ -21,16 +21,16 @@
         {% for slider in sliders|slice:":3" %}
         {% if forloop.first %}
         <div class="carousel-item active h-100">
-        {% else %}
-        <div class="carousel-item h-100">
-        {% endif %}
+            {% else %}
+            <div class="carousel-item h-100">
+                {% endif %}
                 <img class="d-block w-100 h-100" src="{{ slider.image.url }}" />
                 <div class="carousel-caption d-none d-md-block">
                     <h5>{{ slider.title }}</h5>
                     <p>{{ slider.description }}</p>
                 </div>
             </div>
-        {% endfor %}
+            {% endfor %}
 
 
         </div>
@@ -63,12 +63,14 @@
                     <img class="card-img-top" src="{% static 'images/noimage.png' %}" alt="Gineau has no image here">
                     {% endif %}
 
-                    <div class="card-body">
-                        <h4 class="card-title text-danger">{{ product.productName }}</h4>
-                        <p class="card-text">{{ product.productDescript|truncatewords:15 }}</p>
-                        <a href="{% url 'products:detail' product.id %}"
-                            class="btn btn-sm btn-outline-danger">more...</a>
-                    </div>
+                    <a href="{{ product.get_absolute_url }} ">
+                        <div class="card-body">
+                            <h4 class="card-title text-danger">{{ product.productName }}</h4>
+                            <p class="card-text">{{ product.productDescript|truncatewords:15 }}</p>
+                            <button class="btn btn-sm btn-outline-danger">more...</button>
+                        </div>
+                    </a>
+ 
                 </div>
             </div>
             {% endfor %}
@@ -96,12 +98,13 @@
                     <img class="card-img-top" src="{% static 'images/noimage.png' %}" alt="Gineau has no image here">
                     {% endif %}
 
-                    <div class="card-body">
-                        <h4 class="card-title text-danger">{{ product.productName }}</h4>
-                        <p class="card-text">{{ product.productDescript|truncatewords:15 }}</p>
-                        <a href="{% url 'products:detail' product.id %}"
-                            class="btn btn-sm btn-outline-danger">more...</a>
-                    </div>
+                    <a href="{{ product.get_absolute_url }} ">
+                            <div class="card-body">
+                                <h4 class="card-title text-danger">{{ product.productName }}</h4>
+                                <p class="card-text">{{ product.productDescript|truncatewords:15 }}</p>
+                                <button class="btn btn-sm btn-outline-danger">more...</button>
+                            </div>
+                        </a>
                 </div>
             </div>
             {% endfor %}

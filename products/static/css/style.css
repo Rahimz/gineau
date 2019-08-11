@@ -164,6 +164,11 @@ img .img-detail {
     width: 100%;
 }
 
+.card a {
+    text-decoration: None;
+    color: #000;
+}
+
 /* OLD STYLE  */
 /* /////////////////////////// */
 
