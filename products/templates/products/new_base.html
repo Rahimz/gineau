@@ -25,10 +25,12 @@
             <div class="carousel-item h-100">
                 {% endif %}
                 <img class="d-block w-100 h-100" src="{{ slider.image.url }}" />
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>{{ slider.title }}</h5>
-                    <p>{{ slider.description }}</p>
-                </div>
+                <a href="{% url 'products:detail' slider.title %}">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>{{ slider.title }}</h5>
+                        <p>{{ slider.description }}</p>
+                    </div>
+                </a>
             </div>
             {% endfor %}
 
