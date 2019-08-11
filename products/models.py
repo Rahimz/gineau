@@ -63,6 +63,10 @@ class Product(models.Model):
 
 
 class Slider(models.Model):
+	product = models.ForeignKey(Product,
+								on_delete=models.CASCADE,
+								null=True, 
+								blank=True,)
 	title = models.CharField(max_length=250)
 	description = models.CharField(max_length=500)
 	image = models.ImageField(upload_to='slider/')
