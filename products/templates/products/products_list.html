@@ -2,7 +2,7 @@
 
     {% extends 'products/base.html' %}
 
-    {% block title %}{{ genre }}'s Products{% endblock %}
+    {% block title %}{{ genre }}'s products{% endblock %}
 
     {% load static %}
 
@@ -24,7 +24,7 @@
 
 <div class="container product-container position-relative">
     {% if genre %}
-    <h2 class="text-muted text-center mt-5 py-4 custom-h2-title">{{ genre }}'s Products</h2>
+    <h2 class="text-muted text-center mt-5 py-4 custom-h2-title">{{ genre }}'s products</h2>
     {% endif %}
     {% if tag %}
     <h2 class="text-muted text-center mt-5 py-4 custom-h2-title">Products with "{{ tag.name }}"</h2>

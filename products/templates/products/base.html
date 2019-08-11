@@ -2,24 +2,34 @@
 <html lang="en">
 
 <head>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-27305032-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-27305032-1');
+    </script>
+
     {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <!-- <title>Gineau Leathers</title> -->
     <title>Gineau {% block title %}{% endblock %}</title>
     <!-- favicon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{% static "images/favicon.png" %}">
 
     <!-- Open graph goes here for activate Rich link preview-->
-    <!-- <meta property="og:title" content="Elvatech.ir Design, Create & Maintenance" />
-            <meta property="og:type" content="image/jpeg" />
-            <meta property="og:url" content="http://elvatech.ir" />
-            <meta property="og:image" content="{% static "images/logo.png" %}" />
-            <meta property="og:image:width" content="350" />
-            <meta property="og:description" content="ElvaTech, Design, Create and Maintenance of hightech machines" />
-            <meta property="og:determiner" content="the" /> -->
+    <meta property="og:title" content="gineau.com Designing and making handmade leather products" />
+    <meta property="og:type" content="image/jpeg" />
+    <meta property="og:url" content="http://gineau.com" />
+    <meta property="og:image" content="{% static "images/logo.png" %}" />
+    <meta property="og:image:width" content="350" />
+    <meta property="og:description" content="Designing and making handmade leather products" />
+    <meta property="og:determiner" content="the" />
     <!-- OG Meta tags ends here -->
 
     <!-- Latest compiled and minified CSS -->
@@ -62,7 +72,7 @@
                             <li class="nav-item">
                                 <a href="{% url 'products:menlistview' %}" class="nav-link">Men</a>
                             </li>
-                            
+
                         </ul>
                         <button data-toggle="modal" data-target="#custom-modal"
                             class="btn btn-danger">Newsletter</button>
@@ -77,10 +87,10 @@
                                 <button type="button" class="close m-1 p-1" data-dismiss="modal">&times;</button>
                             </div>
                             <div class="modal-body">
-                                
+
                                 {% block top_email_form %}
                                 {%  endblock %}
-                                
+
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-sm btn-dark" data-dismiss="modal">Close</button>
@@ -96,7 +106,7 @@
         {% block content %}
         {% endblock %}
 
-        
+
     </main>
     <!-- ------------ start of footer --------------- -->
     <footer class="container-fluid bg-dark text-light mt-3 custom-border-top">
@@ -105,18 +115,14 @@
                 <div class="col-sm-6 col-md-4 widget-box">
                     <h5 class="widget-title py-2" id="contacts">About Us</h5>
                     <p class="text-justify">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos quibusdam praesentium dicta labore
-                        deserunt architecto voluptatem consectetur voluptas eius esse vero voluptates ducimus adipisci
-                        nulla quod totam, aut, dolorum reprehenderit!
+                        Gineau has designed and produced high quality handmade leather products for more than 7 years.
+                        We are obsessed with details and every single detail is crucial to make a perfect product.
+                        The approach that are the most prefered is a great user experience.
                     </p>
 
                 </div>
                 <div class="col-sm-6 col-md-4 widget-box">
                     <h5 class="widget-title py-2">Contcat Us</h5>
-                    <p>
-                        <i class="fa fa-phone"></i>&nbsp;+98-21&nbsp;7757&nbsp;3752</p>
-                    <p>
-                        <i class="fa fa-mobile"></i>&nbsp;+98-912&nbsp;348&nbsp;7091</p>
                     <p>
                         <i class="fa fa-envelope"></i>&nbsp;info@gineau.com</p>
                 </div>
@@ -124,15 +130,20 @@
                 <div class="col-sm-6 col-md-4 widget-box">
                     <h5 class="widget-title py-2">Follow Us</h5>
                     <div class="social-network">
-                        <a href="https://facebook.com/gineau">
-                            <i class="fa fa-facebook"></i>
-                        </a>
-                        <a href="https://instagram/gineaudesign">
-                            <i class="fa fa-instagram"></i>
-                        </a>
-                        <a href="#">
+                        <a href="https://t.me/gineau">
                             <i class="fa fa-send"></i>
                         </a>
+                        <a href="https://instagram.com/gineaudesign">
+                            <i class="fa fa-instagram"></i>
+                        </a>
+                        <a href="https://facebook.com/gineaudesign">
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                        <a href="https://twitter.com/gineaudesign">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+
+
                     </div>
 
                 </div>

@@ -24,11 +24,11 @@ body {
     content: '';
     height: 2px;
     background-color: #dc3545;
-    width: 240px;
+    width: 50%;
     display: inline-block;
     position: absolute;
     top: 70px;
-    left: calc(50% - 200px);
+    left: 25%;
 }
 .product-container .card {
     transition: 1s;
