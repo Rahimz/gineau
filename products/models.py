@@ -19,6 +19,7 @@ class Product(models.Model):
 					 ('wallet', 'Wallet'),					 
 	)
 	productName = models.CharField(max_length=250)
+	slug = models.SlugField(max_length=250)
 	productGenre = models.CharField(max_length=50,
 									choices=STATUS_CHOICES, 
 									default='women')
@@ -48,7 +49,7 @@ class Product(models.Model):
 								blank=True)
 	votes = models.IntegerField(default=0)
 	
-	productPublish = models.DateTimeField('date published')
+	productPublish = models.DateTimeField(auto_now_add=True)
 
 
 	tags = TaggableManager()
