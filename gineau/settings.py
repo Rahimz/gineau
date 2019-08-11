@@ -78,9 +78,9 @@ WSGI_APPLICATION = 'gineau.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'gineaudb',
-        'USER': 'gineau',
-        'PASSWORD': 'hippodamie3312',
+        'NAME': '***',
+        'USER': '***',
+        'PASSWORD': '***',
     }
 }
 
