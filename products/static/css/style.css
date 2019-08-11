@@ -28,7 +28,7 @@ body {
     display: inline-block;
     position: absolute;
     top: 70px;
-    left: calc(50% - 120px);
+    left: calc(50% - 200px);
 }
 .product-container .card {
     transition: 1s;

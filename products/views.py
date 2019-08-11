@@ -26,7 +26,7 @@ def HomeView(request):
         form = AddEmailForm()
 
     return render(request,
-                  'products/new_base.html',
+                  'products/home.html',
                   {'products_w': products_w,
                   'products_m': products_m,
                    'form': form,
@@ -52,7 +52,7 @@ def WomenListView(request):
         form = AddEmailForm()
 
     return render(request,
-                  'products/products_list_w.html',
+                  'products/products_list.html',
                   {'products': products,
                    'genre': genre,
                    'form': form})
@@ -73,7 +73,7 @@ def MenListView(request, tag_slug=None):
         form = AddEmailForm()
 
     return render(request,
-                    'products/products_list_w.html',
+                    'products/products_list.html',
                     {'products': products,
                     'genre': genre,
                     'form': form})
@@ -99,7 +99,7 @@ def ProductListView(request, tag_slug=None):
         products = products.filter(tags__in=[tag])
 
     return render(request,
-                    'products/products_list_w.html',
+                    'products/products_list.html',
                     {'products': products,
                     'genre': genre,
                     'form': form,
