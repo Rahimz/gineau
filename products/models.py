@@ -37,7 +37,7 @@ class Product(models.Model):
 									   verbose_name='Depth')									   
 	productDescript = models.TextField()
 	productImage = models.FileField(null=True, blank=True)
-	
+	#TODO:: Ading thumbnail for slideshow
 	image1 = models.ImageField(null=True, blank=True)
 	image2 = models.ImageField(null=True, blank=True)
 	image3 = models.ImageField(null=True, blank=True)
@@ -56,6 +56,15 @@ class Product(models.Model):
 	def __str__(self):
 		return self.productName
 
+
+class Slider(models.Model):
+	title = models.CharField(max_length=250)
+	description = models.CharField(max_length=500)
+	image = models.ImageField(upload_to='slider/')
+	active = models.BooleanField(default=True)
+
+	def __str__(self):
+		return self.title
 
 class Image(models.Model):
 	product = models.OneToOneField(Product,

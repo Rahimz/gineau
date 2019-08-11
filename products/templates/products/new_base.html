@@ -18,104 +18,99 @@
 
 <div id="carousel-sample" class="carousel slide mt-5" data-ride="carousel">
     <div class="carousel-inner" style="height: 40vw">
+        {% for slider in sliders|slice:":3" %}
+        {% if forloop.first %}
         <div class="carousel-item active h-100">
-            <img class="d-block w-100 h-100" src="{% static 'slider/slider-1.jpg' %}" />
-            <div class="carousel-caption d-none d-md-block">
-                <h5>first slide</h5>
-                <p>slide descriptions</p>
-            </div>
-        </div>
+        {% else %}
         <div class="carousel-item h-100">
-            <img class="d-block w-100 h-100" src="{% static 'slider/slider-2.jpg' %}" />
-            <div class="carousel-caption d-none d-md-block">
-                <h5>Second slide</h5>
-                <p>Second slide descriptions</p>
-            </div>
-        </div>
-        <div class="carousel-item h-100">
-            <img class="d-block w-100 h-100" src="{% static 'slider/slider-3.jpg' %}" />
-            <div class="carousel-caption d-none d-md-block">
-                <h5>Third slide</h5>
-                <p>Third slide descriptions</p>
-            </div>
-        </div>
-
-    </div>
-    <ol class="carousel-indicators">
-        <li data-target="#carousel-sample" data-slide-to="0" class="active"></li>
-        <li data-target="#carousel-sample" data-slide-to="1"></li>
-        <li data-target="#carousel-sample" data-slide-to="2"></li>
-    </ol>
-    <a class="carousel-control-prev" href="#carousel-sample" data-slide="prev">
-        <span class="carousel-control-prev-icon"></span>
-    </a>
-    <a class="carousel-control-next" href="#carousel-sample" data-slide="next">
-        <span class="carousel-control-next-icon"></span>
-    </a>
-</div>
-
-<!-- ------------ start of Woman products --------------- -->
-<div class="container product-container position-relative">
-    <h2 class="text-muted text-center py-4 custom-h2-title">Women's Products</h2>
-    <div class="row wow fadeInUp">
-        {% if products_w %}
-        {% for product in products_w %}
-
-        <div class="col-sm-6 col-lg-3">
-            <div class="card mt-3">
-                {% if product.productImage %}
-                <img class="card-img-top" src="{{ product.productImage.url }}" alt="{{ product.imageAlt }}">
-
-                {% else %}
-                <img class="card-img-top" src="{% static 'images/noimage.png' %}" alt="Gineau has no image here">
-                {% endif %}
-
-                <div class="card-body">
-                    <h4 class="card-title text-danger">{{ product.productName }}</h4>
-                    <p class="card-text">{{ product.productDescript|truncatewords:15 }}</p>
-                    <a href="{% url 'products:detail' product.id %}" class="btn btn-sm btn-outline-danger">more...</a>
+        {% endif %}
+                <img class="d-block w-100 h-100" src="{{ slider.image.url }}" />
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>{{ slider.title }}</h5>
+                    <p>{{ slider.description }}</p>
                 </div>
             </div>
-        </div>
         {% endfor %}
 
-        {% else %}
-        <p class="lead center">No products are available.</p>
-        {% endif %}
 
+        </div>
+        <ol class="carousel-indicators">
+            <li data-target="#carousel-sample" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-sample" data-slide-to="1"></li>
+            <li data-target="#carousel-sample" data-slide-to="2"></li>
+        </ol>
+        <a class="carousel-control-prev" href="#carousel-sample" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#carousel-sample" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
     </div>
-</div>
 
-<!-- ------------ start of Men products --------------- -->
-<div class="container product-container position-relative">
-    <h2 class="text-muted text-center py-4 custom-h2-title">Men's Products</h2>
-    <div class="row wow fadeInUp">
-        {% if products_m %}
-        {% for product in products_m %}
+    <!-- ------------ start of Woman products --------------- -->
+    <div class="container product-container position-relative">
+        <h2 class="text-muted text-center py-4 custom-h2-title">Women's Products</h2>
+        <div class="row wow fadeInUp">
+            {% if products_w %}
+            {% for product in products_w %}
 
-        <div class="col-sm-6 col-lg-3">
-            <div class="card mt-3">
-                {% if product.productImage %}
-                <img class="card-img-top" src="{{ product.productImage.url }}" alt="{{ product.imageAlt }}">
+            <div class="col-sm-6 col-lg-3">
+                <div class="card mt-3">
+                    {% if product.productImage %}
+                    <img class="card-img-top" src="{{ product.productImage.url }}" alt="{{ product.imageAlt }}">
 
-                {% else %}
-                <img class="card-img-top" src="{% static 'images/noimage.png' %}" alt="Gineau has no image here">
-                {% endif %}
+                    {% else %}
+                    <img class="card-img-top" src="{% static 'images/noimage.png' %}" alt="Gineau has no image here">
+                    {% endif %}
 
-                <div class="card-body">
-                    <h4 class="card-title text-danger">{{ product.productName }}</h4>
-                    <p class="card-text">{{ product.productDescript|truncatewords:15 }}</p>
-                    <a href="{% url 'products:detail' product.id %}" class="btn btn-sm btn-outline-danger">more...</a>
+                    <div class="card-body">
+                        <h4 class="card-title text-danger">{{ product.productName }}</h4>
+                        <p class="card-text">{{ product.productDescript|truncatewords:15 }}</p>
+                        <a href="{% url 'products:detail' product.id %}"
+                            class="btn btn-sm btn-outline-danger">more...</a>
+                    </div>
                 </div>
             </div>
+            {% endfor %}
+
+            {% else %}
+            <p class="lead center">No products are available.</p>
+            {% endif %}
+
         </div>
-        {% endfor %}
-
-        {% else %}
-        <p class="lead center">No products are available.</p>
-        {% endif %}
-
     </div>
-</div>
 
-{% endblock %}
+    <!-- ------------ start of Men products --------------- -->
+    <div class="container product-container position-relative">
+        <h2 class="text-muted text-center py-4 custom-h2-title">Men's Products</h2>
+        <div class="row wow fadeInUp">
+            {% if products_m %}
+            {% for product in products_m %}
+
+            <div class="col-sm-6 col-lg-3">
+                <div class="card mt-3">
+                    {% if product.productImage %}
+                    <img class="card-img-top" src="{{ product.productImage.url }}" alt="{{ product.imageAlt }}">
+
+                    {% else %}
+                    <img class="card-img-top" src="{% static 'images/noimage.png' %}" alt="Gineau has no image here">
+                    {% endif %}
+
+                    <div class="card-body">
+                        <h4 class="card-title text-danger">{{ product.productName }}</h4>
+                        <p class="card-text">{{ product.productDescript|truncatewords:15 }}</p>
+                        <a href="{% url 'products:detail' product.id %}"
+                            class="btn btn-sm btn-outline-danger">more...</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+            {% else %}
+            <p class="lead center">No products are available.</p>
+            {% endif %}
+
+        </div>
+    </div>
+
+    {% endblock %}

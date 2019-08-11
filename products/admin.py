@@ -1,10 +1,11 @@
 from django.contrib import admin
-from .models import Product, Image, Email
+from .models import Product, Image, Email, Slider
 
 # Register your models here.
 admin.site.register(Product)
 admin.site.register(Image)
 admin.site.register(Email)
+admin.site.register(Slider)
 
 
 # class ImageInline(admin.StackedInline):

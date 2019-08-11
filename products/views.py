@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse, Http404
 from django.views import generic
 
-from .models import Product, Image
+from .models import Product, Image, Slider
 from django.template import loader
 from .forms import AddEmailForm
 from taggit.models import Tag
@@ -13,7 +13,8 @@ from django.utils import timezone
 def HomeView(request):
     products_w = Product.objects.filter(productGenre="women")
     products_m = Product.objects.filter(productGenre="men")
-    
+    sliders = Slider.objects.filter(active=True)
+
     form = AddEmailForm()
     if request.method == "POST":
         form = AddEmailForm(request.POST)        
@@ -28,7 +29,8 @@ def HomeView(request):
                   'products/new_base.html',
                   {'products_w': products_w,
                   'products_m': products_m,
-                   'form': form})
+                   'form': form,
+                   'sliders': sliders})
 
     def get_queryset(self):
         """Return the last five published questions."""
