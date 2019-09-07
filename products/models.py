@@ -35,37 +35,37 @@ class Product(models.Model):
 									   blank=True,
 									   verbose_name='Depth')									   
 	productDescript = models.TextField()
-	productImage = models.FileField(upload_to='products/image',
+	productImage = models.FileField(upload_to='products',
 									null=True, blank=True)
 	imageAlt = models.CharField(max_length=500,null=True, blank=True)
 	# Images of slideshow
-	image1 = models.ImageField(upload_to='products/image',
+	image1 = models.ImageField(upload_to='products',
 							   null=True, blank=True)
-	image1_thumb = models.ImageField(upload_to='products/image_thumb',
+	image1_thumb = models.ImageField(upload_to='thumbnails',
 									 null=True, blank=True)
 	image1_alt = models.CharField(max_length=500,null=True, blank=True)
 	
-	image2 = models.ImageField(upload_to='products/image',
+	image2 = models.ImageField(upload_to='products',
 							   null=True, blank=True)
-	image2_thumb = models.ImageField(upload_to='products/image_thumb',
+	image2_thumb = models.ImageField(upload_to='thumbnails',
 									 null=True, blank=True)
 	image2_alt = models.CharField(max_length=500,null=True, blank=True)
 	
-	image3 = models.ImageField(upload_to='products/image',
+	image3 = models.ImageField(upload_to='products',
 							   null=True, blank=True)
-	image3_thumb = models.ImageField(upload_to='products/image_thumb',
+	image3_thumb = models.ImageField(upload_to='thumbnails',
 									 null=True, blank=True)	
 	image3_alt = models.CharField(max_length=500,null=True, blank=True)
 
-	image4 = models.ImageField(upload_to='products/image',
+	image4 = models.ImageField(upload_to='products',
 							   null=True, blank=True)
-	image4_thumb = models.ImageField(upload_to='products/image_thumb',
+	image4_thumb = models.ImageField(upload_to='thumbnails',
 									 null=True, blank=True)
 	image4_alt = models.CharField(max_length=500,null=True, blank=True)
 
-	image5 = models.ImageField(upload_to='products/image',
+	image5 = models.ImageField(upload_to='products',
 							   null=True, blank=True)
-	image5_thumb = models.ImageField(upload_to='products/image_thumb',
+	image5_thumb = models.ImageField(upload_to='thumbnails',
 									 null=True, blank=True)
 	image5_alt = models.CharField(max_length=500,null=True, blank=True)
 	
