@@ -11,8 +11,8 @@ from django.utils import timezone
 
 
 def HomeView(request):
-    products_w = Product.objects.filter(productGenre="women")
-    products_m = Product.objects.filter(productGenre="men")
+    products_w = Product.objects.filter(productGenre="women")[::-1]
+    products_m = Product.objects.filter(productGenre="men")[::-1]
     sliders = Slider.objects.filter(active=True)
 
     form = AddEmailForm()
@@ -39,7 +39,7 @@ def HomeView(request):
 
 def WomenListView(request):
     genre = 'women'
-    products = Product.objects.filter(productGenre=genre)
+    products = Product.objects.filter(productGenre=genre)[::-1]
     
     form = AddEmailForm()
     if request.method == "POST":
@@ -60,7 +60,7 @@ def WomenListView(request):
 
 def MenListView(request, tag_slug=None):
     genre = 'men'
-    products = Product.objects.filter(productGenre=genre)
+    products = Product.objects.filter(productGenre=genre)[::-1]
     
     form = AddEmailForm()
     if request.method == "POST":
