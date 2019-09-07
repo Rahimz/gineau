@@ -25,7 +25,6 @@ class Product(models.Model):
 	productGroup = models.CharField(max_length=250,
 									choices=GROUP_CHOICES,
 									default='handbag')									
-	productSize = models.CharField(max_length=250)
 	productSizeH = models.IntegerField(null=True,
 									   blank=True,
 									   verbose_name='Height')
@@ -36,27 +35,38 @@ class Product(models.Model):
 									   blank=True,
 									   verbose_name='Depth')									   
 	productDescript = models.TextField()
-	productImage = models.FileField(null=True, blank=True)
+	productImage = models.FileField(upload_to='products/image',
+									null=True, blank=True)
 	imageAlt = models.CharField(max_length=500,null=True, blank=True)
 	# Images of slideshow
-	image1 = models.ImageField(null=True, blank=True)
-	image1_thumb = models.ImageField(null=True, blank=True)
+	image1 = models.ImageField(upload_to='products/image',
+							   null=True, blank=True)
+	image1_thumb = models.ImageField(upload_to='products/image_thumb',
+									 null=True, blank=True)
 	image1_alt = models.CharField(max_length=500,null=True, blank=True)
 	
-	image2 = models.ImageField(null=True, blank=True)
-	image2_thumb = models.ImageField(null=True, blank=True)
+	image2 = models.ImageField(upload_to='products/image',
+							   null=True, blank=True)
+	image2_thumb = models.ImageField(upload_to='products/image_thumb',
+									 null=True, blank=True)
 	image2_alt = models.CharField(max_length=500,null=True, blank=True)
 	
-	image3 = models.ImageField(null=True, blank=True)
-	image3_thumb = models.ImageField(null=True, blank=True)	
+	image3 = models.ImageField(upload_to='products/image',
+							   null=True, blank=True)
+	image3_thumb = models.ImageField(upload_to='products/image_thumb',
+									 null=True, blank=True)	
 	image3_alt = models.CharField(max_length=500,null=True, blank=True)
 
-	image4 = models.ImageField(null=True, blank=True)
-	image4_thumb = models.ImageField(null=True, blank=True)
+	image4 = models.ImageField(upload_to='products/image',
+							   null=True, blank=True)
+	image4_thumb = models.ImageField(upload_to='products/image_thumb',
+									 null=True, blank=True)
 	image4_alt = models.CharField(max_length=500,null=True, blank=True)
 
-	image5 = models.ImageField(null=True, blank=True)
-	image5_thumb = models.ImageField(null=True, blank=True)
+	image5 = models.ImageField(upload_to='products/image',
+							   null=True, blank=True)
+	image5_thumb = models.ImageField(upload_to='products/image_thumb',
+									 null=True, blank=True)
 	image5_alt = models.CharField(max_length=500,null=True, blank=True)
 	
 	votes = models.IntegerField(default=0)
